@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Digital Footprint Detector — discover publicly visible information about your digital identity.">
+<title>Risk Score | Digital Footprint Detector</title>
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/risk-score">
+</head>
+<body class="">
+
+<!-- Page content starts here -->
+
+
+<div class="app-shell">
+<aside class="sidebar" id="sidebar">
+  <a class="logo" href="dashboard.html"><span class="logo-mark">◈</span> Footprint<span class="logo-accent">Guard</span></a>
+  <nav class="side-links"><a class="" href="dashboard.html"><span>▦</span>Dashboard</a><a class="" href="scan.html"><span>⌕</span>New Scan</a><a class="" href="history.html"><span>◷</span>History</a><a class="" href="reports.html"><span>▤</span>Reports</a><a class="" href="profile.html"><span>♙</span>Profile</a></nav>
+  <div class="side-bottom"><a href="#" class="logout-btn" class="logout-btn">↪ Logout</a></div>
+</aside>
+<header class="app-nav">
+  <button id="mobileMenu" class="mobile-menu">☰</button>
+  <div class="logo">◈ Risk Score</div>
+  <div class="profile-mini"><button class="notification" title="Notifications">♧</button><a href="profile.html"><span class="user-name">Ayush Kumar Gupta</span> <span class="avatar user-initial">AK</span></a></div>
+</header>
+<main class="main">
+<div class="page-title"><div><span class="eyebrow">Risk analytics</span><h1 class="page-heading">Risk Score Visualization</h1></div></div>
+<div class="risk-layout"><section class="card risk-card"><h3>Overall Risk</h3><div id="riskMeter" class="risk-meter"><div class="risk-content"><div class="risk-score">72</div><small>/100</small><div class="badge badge-high" class="risk-badge">HIGH</div></div></div><p class="mt-20">Higher scores indicate greater public exposure signals.</p></section>
+<section class="card category-card"><h2>Exposure Categories</h2><p>See which areas contribute most to the overall score.</p><div class="risk-row"><div class="risk-row-head"><span>Username Exposure</span><b>90%</b></div><div class="progress"><div class="progress-bar progress-90"></div></div></div><div class="risk-row"><div class="risk-row-head"><span>Profile Exposure</span><b>70%</b></div><div class="progress"><div class="progress-bar progress-70"></div></div></div><div class="risk-row"><div class="risk-row-head"><span>Contact Exposure</span><b>60%</b></div><div class="progress"><div class="progress-bar progress-60"></div></div></div><div class="risk-row"><div class="risk-row-head"><span>Location Exposure</span><b>40%</b></div><div class="progress"><div class="progress-bar progress-40"></div></div></div><div class="warning" class="mt-25">Tip: prioritize the highest-exposure category first, then rescan to measure improvement.</div></section></div>
+</main>
+</div><script src="js/common.js"></script>
+<script src="js/risk-score.js"></script>
+</body>
+</html>

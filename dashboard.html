@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Digital Footprint Detector — discover publicly visible information about your digital identity.">
+<title>Dashboard | Digital Footprint Detector</title>
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/dashboard">
+</head>
+<body class="">
+
+<!-- Page content starts here -->
+
+
+<div class="app-shell">
+<aside class="sidebar" id="sidebar">
+  <!-- nav_logo -->
+
+  <a class="logo" href="dashboard.html">
+     <span class="logo-mark">◈</span>
+     <span>Footprint</span>
+     <span class="logo-accent">Guard</span>
+  </a>
+  
+  <!-- nav_links -->
+  <nav class="side-links">
+    
+    <a class="active" href="dashboard.html">
+      <span>▦</span>
+      <span>Dashboard</span>
+    </a>
+
+    <a class="" href="scan.html">
+      <span>⌕</span>
+      <span>New Scan</span>
+    </a>
+
+    <a class="" href="history.html">
+      <span>◷</span>
+      <span>History</span>
+    </a>
+
+    <a class="" href="reports.html">
+      <span>▤</span>
+      <span>Reports</span>
+    </a>
+
+    <a class="" href="profile.html">
+      <span>♙</span>
+      <span>Profile</span>
+
+<!-- logout_button -->
+
+  <div class="side-bottom">
+    <a href="#" class="logout-btn" class="logout-btn">↪ Logout</a>
+  </div>
+
+</aside>
+<!-- header -->
+
+<header class="app-nav">
+
+  <button id="mobileMenu" class="mobile-menu">☰</button>
+
+  <div class="logo">◈ Dashboard</div>
+
+  <div class="profile-mini">
+
+     <button class="notification" title="Notifications">♧</button>
+     <a href="profile.html">
+       <span class="user-name">Ayush Kumar Gupta</span>
+       <span class="avatar user-initial">AK</span>
+     </a>
+
+  </div>
+
+</header>
+
+<main class="main">
+
+<div class="page-title">
+  <div>
+    <span class="eyebrow">Overview</span>
+    <h1 class="page-heading">Dashboard</h1>
+  </div>
+  <a class="btn btn-primary" href="scan.html">＋ Quick Scan</a>
+</div>
+
+<section class="welcome">
+
+  <h2>Welcome, <span class="user-name">Ayush Kumar Gupta</span> 👋</h2>
+  <p>Monitor your public digital footprint and keep your online exposure under control.</p>
+  <div class="quick-actions">
+    <a class="btn btn-primary" href="scan.html">Start New Scan</a>
+    <a class="btn btn-secondary" href="history.html">View History</a>
+  </div>
+
+</section>
+
+<div class="grid grid-4">
+
+  <article class="card stat-card">
+    <div>
+      <div class="stat-value" id="scanCount">12</div>
+      <div class="stat-label">Total Scans</div>
+    </div>
+    <div class="stat-icon">⌕</div>
+  </article>
+
+  <article class="card stat-card">
+    <div>
+      <div class="stat-value" id="reportCount">8</div>
+      <div class="stat-label">Reports</div>
+    </div>
+    <div class="stat-icon">▤</div>
+  </article>
+
+  <article class="card stat-card">
+    <div>
+      <div class="stat-value">72</div>
+      <div class="stat-label">Current Risk</div>
+    </div>
+    <div class="stat-icon">⚠</div>
+  </article>
+
+  <article class="card stat-card">
+    <div>
+      <div class="stat-value">4</div>
+      <div class="stat-label">Profiles Found</div>
+    </div>
+    <div class="stat-icon">◎</div>
+  </article>
+
+</div>
+
+<div class="grid grid-2" class="mt-20">
+
+  <section class="card">
+
+    <h2>Risk Overview</h2>
+    <p>Current exposure across major categories.</p>
+    <div class="risk-row">
+      <div class="risk-row-head">
+        <span>Username Exposure</span>
+        <b>90%</b>
+      </div>
+      <div class="progress">
+        <div class="progress-bar progress-90"></div>
+      </div>
+    </div>
+
+    <div class="risk-row">
+      <div class="risk-row-head">
+        <span>Profile Exposure</span>
+        <b>70%</b>
+      </div>
+      <div class="progress">
+        <div class="progress-bar progress-70"></div>
+      </div>
+    </div>
+
+    <div class="risk-row">
+      <div class="risk-row-head">
+        <span>Contact Exposure</span>
+        <b>60%</b>
+      </div>
+      <div class="progress">
+        <div class="progress-bar progress-60"></div>
+      </div>
+    </div>
+
+    <a class="helper-link" href="risk-score.html">View full risk breakdown →</a>
+
+  </section>
+
+<section class="card">
+  <h2>Recent Activity</h2>
+  <div class="activity-item">
+    <span class="dot"></span>
+    <div>
+      <b>Username scan completed</b>
+      <p>ayush123 · 72/100 High</p>
+    </div>
+  </div>
+  <div class="activity-item">
+    <span class="dot"></span>
+    <div>
+      <b>Report generated</b>
+      <p>Username report · Today</p>
+    </div>
+  </div>
+  <div class="activity-item">
+    <span class="dot"></span>
+    <div>
+      <b>Profile settings updated</b>
+      <p>Privacy preferences · Yesterday</p>
+    </div>
+  </div>
+</section>
+</div>
+</main>
+</div><script src="js/common.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Digital Footprint Detector — discover publicly visible information about your digital identity.">
+<title>New Scan | Digital Footprint Detector</title>
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/scan">
+</head>
+<body class="">
+
+<!-- Page content starts here -->
+
+
+<div class="app-shell">
+<aside class="sidebar" id="sidebar">
+  <a class="logo" href="dashboard.html"><span class="logo-mark">◈</span> Footprint<span class="logo-accent">Guard</span></a>
+  <nav class="side-links"><a class="" href="dashboard.html"><span>▦</span>Dashboard</a><a class="active" href="scan.html"><span>⌕</span>New Scan</a><a class="" href="history.html"><span>◷</span>History</a><a class="" href="reports.html"><span>▤</span>Reports</a><a class="" href="profile.html"><span>♙</span>Profile</a></nav>
+  <div class="side-bottom"><a href="#" class="logout-btn" class="logout-btn">↪ Logout</a></div>
+</aside>
+<header class="app-nav">
+  <button id="mobileMenu" class="mobile-menu">☰</button>
+  <div class="logo">◈ New Scan</div>
+  <div class="profile-mini"><button class="notification" title="Notifications">♧</button><a href="profile.html"><span class="user-name">Ayush Kumar Gupta</span> <span class="avatar user-initial">AK</span></a></div>
+</header>
+<main class="main">
+<div class="page-title"><div><span class="eyebrow">Privacy scan</span><h1 class="page-heading">Start New Scan</h1></div></div>
+<section class="card scan-card"><div class="section-head" class="section-head-left"><h2>What do you want to search?</h2><p>Choose one target type. Only scan information that is publicly available.</p></div>
+<form id="scanForm"><div class="scan-type"><label><input type="radio" name="scanType" value="Username" checked> Username</label><label><input type="radio" name="scanType" value="Email"> Email</label><label><input type="radio" name="scanType" value="Website"> Website</label><label><input type="radio" name="scanType" value="Name"> Name</label></div>
+<div class="form-group" class="mt-22"><label for="target">Enter information</label><input class="input" id="target" placeholder="e.g. ayush123 or you@example.com"></div>
+<div class="error" id="scanError">Please enter information to scan.</div><button class="btn btn-primary btn-block" type="submit" class="scan-submit">Start Scan →</button></form>
+<div class="warning mt-20">⚠ <b>Scan only publicly available information.</b><br><span class="small-text">Do not enter passwords, OTPs, private messages or credentials.</span></div>
+<div class="info-line"><span class="help">i</span> <span>Results depend on public source availability and supported integrations.</span></div></section>
+</main>
+</div><script src="js/common.js"></script>
+<script src="js/scan.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+/* Index page CSS */
+
+.hero .hero-grid{
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    align-items:center;gap:40px
+}
+.hero-visual{
+    padding:20px
+}
+.shield{
+    height:340px;
+    border-radius:30px;
+    border:1px solid var(--border);
+    background:linear-gradient(145deg,#10284a,#0b1628);
+    display:grid;
+    place-items:center;
+    box-shadow:var(--shadow);
+    position:relative
+}
+.shield-core{
+    width:150px;
+    height:175px;
+    clip-path:polygon(50% 0,92% 17%,86% 65%,50% 100%,14% 65%,8% 17%);
+    background:linear-gradient(145deg,#4f8cff,#7b61ff);
+    display:grid;
+    place-items:center;
+    font-size:4rem
+}
+.mini-stat{
+    position:absolute;
+    padding:13px 16px;
+    background:#0a1829;
+    border:1px solid var(--border);
+    border-radius:13px;
+    box-shadow:var(--shadow);
+    font-size:.8rem
+}
+.mini-stat.one{
+    top:30px;
+    left:20px
+}
+.mini-stat.two{
+    bottom:30px;
+    right:20px
+}
+.benefit{
+    display:flex;
+    gap:14px;
+}
+.benefit .icon-box{
+    flex:none;
+    margin:0px;
+}

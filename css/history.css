@@ -1,0 +1,11 @@
+/* History page CSS */
+
+.filter-row{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:18px
+}
+.filter-row .input,.filter-row .select{
+    max-width:220px
+}

@@ -1,0 +1,29 @@
+/* Dashboard page CSS */
+
+.welcome{
+    padding:28px;
+    background:linear-gradient(135deg,#102b50,#171c3d);
+    border-radius:20px;
+    border:1px solid var(--border);margin-bottom:20px
+}
+.quick-actions{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap
+}
+.activity-item{
+    display:flex;
+    gap:12px;
+    padding:14px 0;
+    border-bottom:1px solid var(--border)
+}
+.activity-item:last-child{
+    border-bottom:0
+}
+.dot{
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    background:var(--primary);
+    margin-top:8px
+}
