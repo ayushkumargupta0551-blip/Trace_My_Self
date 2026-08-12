@@ -1,3 +1,18 @@
 /* Risk Score page CSS */
 
-.risk-layout{display:grid;grid-template-columns:320px 1fr;gap:20px;align-items:start}.category-card{height:100%}@media(max-width:800px){.risk-layout{grid-template-columns:1fr}}
+.risk-layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 20px;
+    align-items: start
+}
+
+.category-card {
+    height: 100%
+}
+
+@media(max-width:800px) {
+    .risk-layout {
+        grid-template-columns: 1fr
+    }
+}
