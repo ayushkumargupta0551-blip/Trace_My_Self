@@ -1,25 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Digital Footprint Detector — discover publicly visible information about your digital identity.">
-<title>Login | Digital Footprint Detector</title>
-<link rel="stylesheet" href="css/common.css">
-<link rel="stylesheet" href="css/login">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Digital Footprint Detector — discover publicly visible information about your digital identity.">
+    <title>Login | Digital Footprint Detector</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/login">
 </head>
+
 <body class="auth-page">
 
-<!-- Page content starts here -->
+    <!-- Page content starts here -->
 
 
-<div class="auth-card"><div class="auth-header"><a class="logo" href="index.html"><span class="logo-mark">◈</span> FootprintGuard</a><h1 class="auth-title">Welcome Back</h1><p>Sign in to access your scans and reports.</p></div>
-<form id="loginForm" novalidate><div class="form-group"><label for="email">Email</label><input class="input" id="email" type="email" placeholder="you@example.com"><div class="error" id="emailError"></div></div>
-<div class="form-group"><label for="password">Password</label><div class="input-wrap"><input class="input" id="password" type="password" placeholder="Enter your password"><button type="button" class="password-toggle" data-target="password">Show</button></div></div>
-<div class="form-row" class="auth-row"><label class="remember"><input type="checkbox"> Remember me</label><a class="helper-link" href="#">Forgot Password?</a></div>
-<button class="btn btn-primary btn-block" type="submit">Login</button><div class="loading" id="loginLoading"><span class="spinner"></span> Signing you in...</div><div class="error" id="loginError"></div></form>
-<div class="auth-footer">Don't have an account? <a class="helper-link" href="signup.html">Create Account</a></div><div class="auth-footer"><a href="index.html">← Back to home</a></div></div>
-<script src="js/common.js"></script>
-<script src="js/login.js"></script>
+    <div class="auth-card">
+        <div class="auth-header"><a class="logo" href="index.html"><span class="logo-mark">◈</span> FootprintGuard</a>
+            <h1 class="auth-title">Welcome Back</h1>
+            <p>Sign in to access your scans and reports.</p>
+        </div>
+        <form id="loginForm" novalidate>
+            <div class="form-group"><label for="email">Email</label><input class="input" id="email" type="email"
+                    placeholder="you@example.com">
+                <div class="error" id="emailError"></div>
+            </div>
+            <div class="form-group"><label for="password">Password</label>
+                <div class="input-wrap"><input class="input" id="password" type="password"
+                        placeholder="Enter your password"><button type="button" class="password-toggle"
+                        data-target="password">Show</button></div>
+            </div>
+            <div class="form-row" class="auth-row"><label class="remember"><input type="checkbox"> Remember me</label><a
+                    class="helper-link" href="#">Forgot Password?</a></div>
+            <button class="btn btn-primary btn-block" type="submit">Login</button>
+            <div class="loading" id="loginLoading"><span class="spinner"></span> Signing you in...</div>
+            <div class="error" id="loginError"></div>
+        </form>
+        <div class="auth-footer">Don't have an account? <a class="helper-link" href="signup.html">Create Account</a>
+        </div>
+        <div class="auth-footer"><a href="index.html">← Back to home</a></div>
+    </div>
+    <script src="js/common.js"></script>
+    <script src="js/login.js"></script>
 </body>
+
 </html>
