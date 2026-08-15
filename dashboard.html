@@ -8,7 +8,46 @@
     content="Digital Footprint Detector — discover publicly visible information about your digital identity.">
   <title>Dashboard | Digital Footprint Detector</title>
   <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/dashboard">
+  <style>
+      /* Dashboard page CSS */ 
+
+.welcome {
+    padding: 28px;
+    background: linear-gradient(135deg, #102b50, #171c3d);
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    margin-bottom: 20px
+}
+
+.grid-2{
+  margin-top: 50px;
+}
+
+.quick-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap
+}
+
+.activity-item {
+    display: flex;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border)
+}
+
+.activity-item:last-child {
+    border-bottom: 0
+}
+
+.dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--primary);
+    margin-top: 8px
+}
+  </style>
 </head>
 
 <body class="">
@@ -204,8 +243,15 @@
       </div>
     </main>
   </div>
-  <script src="js/common.js"></script>
-  <script src="js/dashboard.js"></script>
-</body>
+  <!-- Dashboard page JS -->
+  <script></script>
+  <script>
+          document.addEventListener("DOMContentLoaded", () => {
+            const scans = JSON.parse(localStorage.getItem("dfdScans") || "[]");
+             $("#scanCount").textContent = scans.length || 12;
+             $("#reportCount").textContent = Math.max(8, scans.length);
+       });
 
+  </script>
+</body>
 </html>

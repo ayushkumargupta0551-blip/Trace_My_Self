@@ -1,54 +1,182 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Digital Footprint Detector — discover publicly visible information about your digital identity.">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Digital Footprint Detector — discover publicly visible information about your digital identity."
+    />
     <title>Create Account | Digital Footprint Detector</title>
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/signup">
-</head>
+    <link rel="stylesheet" href="css/common.css" />
+    <style>
+      /* Signup page CSS */
 
-<body class="auth-page">
+.strength {
+    margin-top: 8px
+}
 
+.strength-bars {
+    display: flex;
+    gap: 4px
+}
+
+.strength-bars span {
+    height: 4px;
+    flex: 1;
+    border-radius: 4px;
+    background: #26384d
+}
+
+.strength-text {
+    font-size: .75rem;
+    color: var(--muted);
+    margin-top: 4px
+}
+    </style>
+  </head>
+
+  <body class="auth-page">
     <!-- Page content starts here -->
 
-
     <div class="auth-card">
-        <div class="auth-header"><a class="logo" href="index.html"><span class="logo-mark">◈</span> FootprintGuard</a>
-            <h1 class="auth-title">Create Account</h1>
-            <p>Start monitoring your public digital footprint.</p>
+      <div class="auth-header">
+        <a class="logo" href="index.html"
+          ><span class="logo-mark">◈</span> FootprintGuard</a
+        >
+        <h1 class="auth-title">Create Account</h1>
+        <p>Start monitoring your public digital footprint.</p>
+      </div>
+      <form id="signupForm" novalidate>
+        <div class="form-group">
+          <label for="name">Name</label
+          ><input class="input" id="name" placeholder="Your full name" />
         </div>
-        <form id="signupForm" novalidate>
-            <div class="form-group"><label for="name">Name</label><input class="input" id="name"
-                    placeholder="Your full name"></div>
-            <div class="form-group"><label for="email">Email</label><input class="input" id="email" type="email"
-                    placeholder="you@example.com"></div>
-            <div class="form-group"><label for="password">Password</label>
-                <div class="input-wrap"><input class="input" id="password" type="password"
-                        placeholder="Create a strong password"><button type="button" class="password-toggle"
-                        data-target="password">Show</button></div>
-                <div class="strength">
-                    <div class="strength-bars"><span></span><span></span><span></span><span></span></div>
-                    <div class="strength-text" id="strengthText">Very weak</div>
-                </div>
+        <div class="form-group">
+          <label for="email">Email</label
+          ><input
+            class="input"
+            id="email"
+            type="email"
+            placeholder="you@example.com"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="input-wrap">
+            <input
+              class="input"
+              id="password"
+              type="password"
+              placeholder="Create a strong password"
+            /><button
+              type="button"
+              class="password-toggle"
+              data-target="password"
+            >
+              Show
+            </button>
+          </div>
+          <div class="strength">
+            <div class="strength-bars">
+              <span></span><span></span><span></span><span></span>
             </div>
-            <div class="form-group"><label for="confirmPassword">Confirm Password</label>
-                <div class="input-wrap"><input class="input" id="confirmPassword" type="password"
-                        placeholder="Repeat your password"><button type="button" class="password-toggle"
-                        data-target="confirmPassword">Show</button></div>
-            </div>
-            <label class="checkbox"><input id="terms" type="checkbox"> <span>I agree to the <a class="helper-link"
-                        href="#">Terms</a> &amp; <a class="helper-link" href="#">Privacy Policy</a>.</span></label>
-            <div class="error" id="signupError" class="signup-error"></div><button class="btn btn-primary btn-block"
-                type="submit">Create Account</button>
-        </form>
-        <div class="auth-footer">Already have an account? <a class="helper-link" href="login.html">Login</a></div>
+            <div class="strength-text" id="strengthText">Very weak</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <div class="input-wrap">
+            <input
+              class="input"
+              id="confirmPassword"
+              type="password"
+              placeholder="Repeat your password"
+            /><button
+              type="button"
+              class="password-toggle"
+              data-target="confirmPassword"
+            >
+              Show
+            </button>
+          </div>
+        </div>
+        <label class="checkbox"
+          ><input id="terms" type="checkbox" />
+          <span
+            >I agree to the <a class="helper-link" href="#">Terms</a> &amp;
+            <a class="helper-link" href="#">Privacy Policy</a>.</span
+          ></label
+        >
+        <div class="error" id="signupError" class="signup-error"></div>
+        <button class="btn btn-primary btn-block" type="submit">
+          Create Account
+        </button>
+      </form>
+      <div class="auth-footer">
+        Already have an account?
+        <a class="helper-link" href="login.html">Login</a>
+      </div>
     </div>
+    <!-- Signup page JS -->
     <script src="js/common.js"></script>
-    <script src="js/signup.js"></script>
-</body>
+    <script>
 
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = $("#signupForm"),
+          error = $("#signupError"),
+          pass = $("#password"),
+          confirm = $("#confirmPassword");
+        function strength(v) {
+          let score = 0;
+          if (v.length >= 8) score++;
+          if (/[A-Z]/.test(v)) score++;
+          if (/[0-9]/.test(v)) score++;
+          if (/[^A-Za-z0-9]/.test(v)) score++;
+          $$(".strength-bars span").forEach(
+            (x, i) => (x.style.background = i < score ? "var(--success)" : "#26384d"),
+          );
+          $("#strengthText").textContent =
+            ["Very weak", "Weak", "Good", "Strong", "Very strong"][score] ||
+            "Very weak";
+        }
+        pass.addEventListener("input", () => strength(pass.value));
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          error.style.display = "none";
+          const name = $("#name").value.trim(),
+            email = $("#email").value.trim(),
+            p = pass.value,
+            c = confirm.value;
+          if (name.length < 2) {
+            error.textContent = "Please enter your name.";
+            error.style.display = "block";
+            return;
+          }
+          if (!email.includes("@")) {
+            error.textContent = "Please enter a valid email.";
+            error.style.display = "block";
+            return;
+          }
+          if (p.length < 8) {
+            error.textContent = "Password must be at least 8 characters.";
+            error.style.display = "block";
+            return;
+          }
+          if (p !== c) {
+            error.textContent = "Passwords do not match.";
+            error.style.display = "block";
+            return;
+          }
+          if (!$("#terms").checked) {
+            error.textContent = "Please accept the Terms and Privacy Policy.";
+            error.style.display = "block";
+            return;
+          }
+          localStorage.setItem("dfdUser", JSON.stringify({ name, email }));
+          location.href = "dashboard.html";
+        });
+      });
+    </script>
+  </body>
 </html>

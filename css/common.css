@@ -134,6 +134,11 @@ button {
   color: #fff;
   box-shadow: 0 10px 25px rgba(79, 140, 255, .2)
 }
+@media (max-width: 932px) {
+  .btn-primary {
+    height:40px
+  }
+}
 
 .btn-secondary {
   background: var(--surface-2);

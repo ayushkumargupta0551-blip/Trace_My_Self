@@ -1,79 +1,142 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Digital Footprint Detector — discover publicly visible information about your digital identity."
+    />
+    <title>My Profile | Digital Footprint Detector</title>
+    <link rel="stylesheet" href="css/common.css" />
+    <style>
+      /* Profile page CSS */
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="Digital Footprint Detector — discover publicly visible information about your digital identity.">
-  <title>My Profile | Digital Footprint Detector</title>
-  <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/profile">
-</head>
+.profile-grid-layout {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 20px
+}
 
-<body class="">
+@media(max-width:850px) {
+    .profile-grid-layout {
+        grid-template-columns: 1fr
+    }
+}
+    </style>
+  </head>
 
-  <!-- Page content starts here -->
+  <body class="">
+    <!-- Page content starts here -->
 
-
-  <div class="app-shell">
-    <aside class="sidebar" id="sidebar">
-      <a class="logo" href="dashboard.html"><span class="logo-mark">◈</span> Footprint<span
-          class="logo-accent">Guard</span></a>
-      <nav class="side-links"><a class="" href="dashboard.html"><span>▦</span>Dashboard</a><a class=""
-          href="scan.html"><span>⌕</span>New Scan</a><a class="" href="history.html"><span>◷</span>History</a><a
-          class="" href="reports.html"><span>▤</span>Reports</a><a class="active"
-          href="profile.html"><span>♙</span>Profile</a></nav>
-      <div class="side-bottom"><a href="#" class="logout-btn" class="logout-btn">↪ Logout</a></div>
-    </aside>
-    <header class="app-nav">
-      <button id="mobileMenu" class="mobile-menu">☰</button>
-      <div class="logo">◈ Profile</div>
-      <div class="profile-mini"><button class="notification" title="Notifications">♧</button><a
-          href="profile.html"><span class="user-name">Ayush Kumar Gupta</span> <span
-            class="avatar user-initial">AK</span></a></div>
-    </header>
-    <main class="main">
-      <div class="page-title">
-        <div><span class="eyebrow">Account</span>
-          <h1 class="page-heading">My Profile</h1>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <a class="logo" href="dashboard.html"
+          ><span class="logo-mark">◈</span> Footprint<span class="logo-accent"
+            >Guard</span
+          ></a
+        >
+        <nav class="side-links">
+          <a class="" href="dashboard.html"><span>▦</span>Dashboard</a
+          ><a class="" href="scan.html"><span>⌕</span>New Scan</a
+          ><a class="" href="history.html"><span>◷</span>History</a
+          ><a class="" href="reports.html"><span>▤</span>Reports</a
+          ><a class="active" href="profile.html"><span>♙</span>Profile</a>
+        </nav>
+        <div class="side-bottom">
+          <a href="#" class="logout-btn" class="logout-btn">↪ Logout</a>
         </div>
-      </div>
-      <div class="profile-grid-layout">
-        <section class="card">
-          <div class="profile-cover">
-            <div class="profile-avatar user-initial">AK</div>
+      </aside>
+      <header class="app-nav">
+        <button id="mobileMenu" class="mobile-menu">☰</button>
+        <div class="logo">◈ Profile</div>
+        <div class="profile-mini">
+          <button class="notification" title="Notifications">♧</button
+          ><a href="profile.html"
+            ><span class="user-name">Ayush Kumar Gupta</span>
+            <span class="avatar user-initial">AK</span></a
+          >
+        </div>
+      </header>
+      <main class="main">
+        <div class="page-title">
+          <div>
+            <span class="eyebrow">Account</span>
+            <h1 class="page-heading">My Profile</h1>
           </div>
-          <form id="profileForm">
-            <div class="form-group"><label for="profileName">Name</label><input class="input" id="profileName"
-                value="Ayush Kumar Gupta"></div>
-            <div class="form-group"><label for="profileEmail">Email</label><input class="input" id="profileEmail"
-                value="example@gmail.com"></div><button class="btn btn-primary" type="submit">Save Changes</button>
-          </form>
-        </section>
-        <section class="card">
-          <h2>Security</h2>
-          <div class="security-row">
-            <div><b>Password</b>
-              <p class="small-muted">••••••••</p>
-            </div><button class="btn btn-secondary">Change Password</button>
-          </div>
-          <div class="security-row">
-            <div><b>Two-factor authentication</b>
-              <p class="small-muted">Add an extra layer of account security.</p>
-            </div><button class="btn btn-secondary">Enable</button>
-          </div>
-          <div class="security-row">
-            <div><b>Active sessions</b>
-              <p class="small-muted">1 current browser session</p>
-            </div><button class="btn btn-secondary">Manage</button>
-          </div>
-        </section>
-      </div>
-    </main>
-  </div>
-  <script src="js/common.js"></script>
-  <script src="js/profile.js"></script>
-</body>
+        </div>
+        <div class="profile-grid-layout">
+          <section class="card">
+            <div class="profile-cover">
+              <div class="profile-avatar user-initial">AK</div>
+            </div>
+            <form id="profileForm">
+              <div class="form-group">
+                <label for="profileName">Name</label
+                ><input
+                  class="input"
+                  id="profileName"
+                  value="Ayush Kumar Gupta"
+                />
+              </div>
+              <div class="form-group">
+                <label for="profileEmail">Email</label
+                ><input
+                  class="input"
+                  id="profileEmail"
+                  value="example@gmail.com"
+                />
+              </div>
+              <button class="btn btn-primary" type="submit">
+                Save Changes
+              </button>
+            </form>
+          </section>
+          <section class="card">
+            <h2>Security</h2>
+            <div class="security-row">
+              <div>
+                <b>Password</b>
+                <p class="small-muted">••••••••</p>
+              </div>
+              <button class="btn btn-secondary">Change Password</button>
+            </div>
+            <div class="security-row">
+              <div>
+                <b>Two-factor authentication</b>
+                <p class="small-muted">
+                  Add an extra layer of account security.
+                </p>
+              </div>
+              <button class="btn btn-secondary">Enable</button>
+            </div>
+            <div class="security-row">
+              <div>
+                <b>Active sessions</b>
+                <p class="small-muted">1 current browser session</p>
+              </div>
+              <button class="btn btn-secondary">Manage</button>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+    <!-- Profile page JS -->
+    <script src="js/common.js"></script>
+    <script>
 
+      document.addEventListener("DOMContentLoaded", () => {
+        $("#profileForm").addEventListener("submit", (e) => {
+          e.preventDefault();
+          const name = $("#profileName").value.trim(),
+            email = $("#profileEmail").value.trim();
+          if (name && email) {
+            localStorage.setItem("dfdUser", JSON.stringify({ name, email }));
+            applyUser();
+            showToast("Profile updated successfully.");
+          }
+        });
+      });
+    </script>
+  </body>
 </html>

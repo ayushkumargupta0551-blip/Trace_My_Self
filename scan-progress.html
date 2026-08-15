@@ -1,67 +1,141 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Digital Footprint Detector — discover publicly visible information about your digital identity."
+    />
+    <title>Scanning | Digital Footprint Detector</title>
+    <link rel="stylesheet" href="css/common.css" />
+    <style>
+      /* Scan Progress page CSS */
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="Digital Footprint Detector — discover publicly visible information about your digital identity.">
-  <title>Scanning | Digital Footprint Detector</title>
-  <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/scan-progress">
-</head>
+.progress-wrap {
+  max-width: 800px;
+  margin: auto;
+}
 
-<body class="">
+.percent {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 900;
+  margin: 25px 0 8px;
+}
 
-  <!-- Page content starts here -->
+.scan-hero {
+  text-align: center;
+  margin-bottom: 25px;
+}
 
+    </style>
+  </head>
 
-  <div class="app-shell">
-    <aside class="sidebar" id="sidebar">
-      <a class="logo" href="dashboard.html"><span class="logo-mark">◈</span> Footprint<span
-          class="logo-accent">Guard</span></a>
-      <nav class="side-links"><a class="" href="dashboard.html"><span>▦</span>Dashboard</a><a class=""
-          href="scan.html"><span>⌕</span>New Scan</a><a class="" href="history.html"><span>◷</span>History</a><a
-          class="" href="reports.html"><span>▤</span>Reports</a><a class=""
-          href="profile.html"><span>♙</span>Profile</a></nav>
-      <div class="side-bottom"><a href="#" class="logout-btn" class="logout-btn">↪ Logout</a></div>
-    </aside>
-    <header class="app-nav">
-      <button id="mobileMenu" class="mobile-menu">☰</button>
-      <div class="logo">◈ Scan Progress</div>
-      <div class="profile-mini"><button class="notification" title="Notifications">♧</button><a
-          href="profile.html"><span class="user-name">Ayush Kumar Gupta</span> <span
-            class="avatar user-initial">AK</span></a></div>
-    </header>
-    <main class="main">
-      <section class="progress-wrap">
-        <div class="scan-hero">
-          <div class="spinner" class="scan-spinner-large"></div><span class="eyebrow">Live scan</span>
-          <h1 class="scan-title">Scanning...</h1>
-          <p>We're analyzing publicly available information.</p>
+  <body class="">
+    <!-- Page content starts here -->
+
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <a class="logo" href="dashboard.html"
+          ><span class="logo-mark">◈</span> Footprint<span class="logo-accent"
+            >Guard</span
+          ></a
+        >
+        <nav class="side-links">
+          <a class="" href="dashboard.html"><span>▦</span>Dashboard</a
+          ><a class="" href="scan.html"><span>⌕</span>New Scan</a
+          ><a class="" href="history.html"><span>◷</span>History</a
+          ><a class="" href="reports.html"><span>▤</span>Reports</a
+          ><a class="" href="profile.html"><span>♙</span>Profile</a>
+        </nav>
+        <div class="side-bottom">
+          <a href="#" class="logout-btn" class="logout-btn">↪ Logout</a>
         </div>
-        <div class="card">
-          <div class="percent" id="percent">0%</div>
-          <div class="progress">
-            <div id="progressBar" class="progress-bar"></div>
+      </aside>
+      <header class="app-nav">
+        <button id="mobileMenu" class="mobile-menu">☰</button>
+        <div class="logo">◈ Scan Progress</div>
+        <div class="profile-mini">
+          <button class="notification" title="Notifications">♧</button
+          ><a href="profile.html"
+            ><span class="user-name">Ayush Kumar Gupta</span>
+            <span class="avatar user-initial">AK</span></a
+          >
+        </div>
+      </header>
+      <main class="main">
+        <section class="progress-wrap">
+          <div class="scan-hero">
+            <div class="spinner" class="scan-spinner-large"></div>
+            <span class="eyebrow">Live scan</span>
+            <h1 class="scan-title">Scanning...</h1>
+            <p>We're analyzing publicly available information.</p>
           </div>
-          <div class="steps">
-            <div class="scan-step"><span>✓</span><span>Validating input</span><span class="step-status done">○</span>
+          <div class="card">
+            <div class="percent" id="percent">0%</div>
+            <div class="progress">
+              <div id="progressBar" class="progress-bar"></div>
             </div>
-            <div class="scan-step"><span>◈</span><span>Checking supported profiles</span><span
-                class="step-status">○</span></div>
-            <div class="scan-step"><span>⌕</span><span>Analyzing public information</span><span
-                class="step-status">○</span></div>
-            <div class="scan-step"><span>⚠</span><span>Calculating risk</span><span class="step-status">○</span></div>
-            <div class="scan-step"><span>▤</span><span>Generating report</span><span class="step-status">○</span></div>
+            <div class="steps">
+              <div class="scan-step">
+                <span>✓</span><span>Validating input</span
+                ><span class="step-status done">○</span>
+              </div>
+              <div class="scan-step">
+                <span>◈</span><span>Checking supported profiles</span
+                ><span class="step-status">○</span>
+              </div>
+              <div class="scan-step">
+                <span>⌕</span><span>Analyzing public information</span
+                ><span class="step-status">○</span>
+              </div>
+              <div class="scan-step">
+                <span>⚠</span><span>Calculating risk</span
+                ><span class="step-status">○</span>
+              </div>
+              <div class="scan-step">
+                <span>▤</span><span>Generating report</span
+                ><span class="step-status">○</span>
+              </div>
+            </div>
+            <button id="cancelScan" class="btn btn-secondary btn-block">
+              Cancel Scan
+            </button>
           </div>
-          <button id="cancelScan" class="btn btn-secondary btn-block">Cancel Scan</button>
-        </div>
-      </section>
-    </main>
-  </div>
-  <script src="js/common.js"></script>
-  <script src="js/scan-progress.js"></script>
-</body>
+        </section>
+      </main>
+    </div>
+     <!-- Scan Progress page JS -->
+    <script src="js/common.js"></script>
+    <script>
 
+      document.addEventListener("DOMContentLoaded", () => {
+        let progress = 0;
+        const bar = $("#progressBar"),
+          pct = $("#percent"),
+          steps = $$(".scan-step");
+        const timer = setInterval(() => {
+          progress += 5;
+          bar.style.width = progress + "%";
+          pct.textContent = progress + "%";
+          const index = Math.min(steps.length - 1, Math.floor(progress / 20));
+          steps.forEach((s, i) => {
+            s.querySelector(".step-status").textContent =
+              i < index ? "✓" : i === index ? "⟳" : "○";
+            s.querySelector(".step-status").className =
+              "step-status " + (i < index ? "done" : i === index ? "running" : "");
+          });
+          if (progress >= 100) {
+            clearInterval(timer);
+            setTimeout(() => (location.href = "results.html"), 500);
+          }
+        }, 180);
+        $("#cancelScan").addEventListener("click", () => {
+          clearInterval(timer);
+          location.href = "scan.html";
+        });
+      });
+    </script>
+  </body>
 </html>

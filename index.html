@@ -1,195 +1,272 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Digital Footprint Detector — discover publicly visible information about your digital identity."
+    />
+    <title>Digital Footprint Detector</title>
+    <link rel="stylesheet" href="css/common.css" />
+    <style>
+      /* Index page CSS */
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="Digital Footprint Detector — discover publicly visible information about your digital identity.">
-  <title>Digital Footprint Detector</title>
-  <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/index">
-</head>
+.hero .hero-grid {
+    grid-template-columns: 1.2fr .8fr;
+    align-items: center;
+    gap: 40px
+}
 
-<body class="">
+.hero-visual {
+    padding: 20px;
+}
+.shield {
+  display: flex;
+  gap: 30px;
+  flex-direction:row;
+  justify-content: center;
+}
 
-  <!-- Page content starts here -->
+.benefit {
+    display: flex;
+    gap: 14px;
+}
 
+.benefit .icon-box {
+    flex: none;
+    margin: 0px;
+}
+    </style>
+  </head>
 
-  <header class="site-nav">
-    <div class="container nav-inner">
+  <body class="">
+    <!-- Page content starts here -->
 
-      <a class="logo" href="index.html">
-        <span class="logo-mark">◈</span>
-        <span>TraceMySelf</span>
-        <span class="logo-accent">Guard</span>
-      </a>
+    <header class="site-nav">
+      <div class="container nav-inner">
+        <a class="logo" href="index.html">
+          <span class="logo-mark">◈</span>
+          <span>TraceMySelf</span>
+          <span class="logo-accent">Guard</span>
+        </a>
 
-      <nav class="nav-links">
-        <a class="active" href="index.html">Home</a>
-        <a href="#features">Features</a><a href="#about">About</a>
-        <a href="login.html" class="">Login</a>
-      </nav>
+        <nav class="nav-links">
+          <a class="active" href="index.html">Home</a>
+          <a href="#features">Features</a><a href="#about">About</a>
+          <a href="login.html" class="">Login</a>
+        </nav>
 
-      <div class="nav-actions">
-        <a class="btn btn-primary" href="signup.html">Get Started</a>
-        <button id="mobileMenu" class="mobile-menu">☰</button>
-      </div>
-    </div>
-
-  </header>
-
-  <section class="hero">
-    <div class="container hero-grid">
-      <div class="hero-content" class="hero-content-left">
-        <span class="eyebrow">🔐 Privacy-first digital intelligence</span>
-        <h1>Know what the internet knows about you.</h1>
-        <p>Discover publicly visible information connected to your usernames, emails, websites and names — then
-          understand the risks and what you can do next.</p>
-        <div class="hero-actions" class="hero-actions-left">
-          <a id="startScan" class="btn btn-primary" href="scan.html">Start Free Scan →</a>
-          <a class="btn btn-secondary" href="#how-it-works">See How It Works</a>
-        </div>
-
-        <div class="trust-row" class="hero-actions-left">
-          <span>✓ Public data only</span>
-          <span>✓ No password collection</span>
-          <span>✓ Actionable reports</span>
-        </div>
-
-      </div>
-
-      <div class="hero-visual">
-        <div class="shield">
-          <div class="shield-core">⌾</div>
-          <div class="mini-stat one">● Scan status: <b>Protected</b></div>
-          <div class="mini-stat two">Risk score <b>72 / 100</b></div>
+        <div class="nav-actions">
+          <a class="btn btn-primary" href="signup.html">Get Started</a>
+          <button id="mobileMenu" class="mobile-menu">☰</button>
         </div>
       </div>
+    </header>
 
-    </div>
-  </section>
-
-  <section class="section" id="how-it-works">
-    <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">Simple workflow</span>
-        <h2>How It Works</h2>
-        <p>Three clear steps from search to actionable privacy recommendations.</p>
-      </div>
-
-      <div class="grid grid-3">
-        <article class="card">
-          <div class="step-num">1</div>
-          <h3>Enter</h3>
-          <p>Choose a scan type and enter a username, email, website or name.</p>
-        </article>
-
-        <article class="card">
-          <div class="step-num">2</div>
-          <h3>Scan</h3>
-          <p>Check publicly accessible sources and supported online profiles.</p>
-        </article>
-
-        <article class="card">
-          <div class="step-num">3</div>
-          <h3>Analyze</h3>
-          <p>Turn findings into a risk score, report and practical next steps.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="features">
-    <div class="container">
-      <div class="section-head"><span class="eyebrow">Core capabilities</span>
-        <h2>Everything you need to understand your footprint</h2>
-      </div>
-      <div class="grid grid-4">
-        <article class="card">
-          <div class="icon-box">⌕</div>
-          <h3>Username Search</h3>
-          <p>Find where a username appears across supported public platforms.</p>
-        </article>
-        <article class="card">
-          <div class="icon-box">◎</div>
-          <h3>Email Exposure</h3>
-          <p>Identify public references and exposure signals associated with an email.</p>
-        </article>
-        <article class="card">
-          <div class="icon-box">◴</div>
-          <h3>Risk Analysis</h3>
-          <p>Combine exposure categories into an easy-to-understand score.</p>
-        </article>
-        <article class="card">
-          <div class="icon-box">▤</div>
-          <h3>Detailed Report</h3>
-          <p>Review sources, findings, severity and recommended actions.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-  <section class="section" id="about">
-    <div class="container">
-      <div class="section-head"><span class="eyebrow">Why it matters</span>
-        <h2>Why Digital Footprint?</h2>
-        <p>Your public information can build a picture of your online identity. Awareness helps you decide what should
-          stay public and what should be reviewed.</p>
-      </div>
-      <div class="grid grid-3">
-        <article class="card benefit">
-          <div class="icon-box">🛡</div>
-          <div>
-            <h3>Protect your privacy</h3>
-            <p>Spot unnecessary public information before it becomes a bigger problem.</p>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content" class="hero-content-left">
+          <span class="eyebrow">🔐 Privacy-first digital intelligence</span>
+          <h1>Know what the internet knows about you.</h1>
+          <p>
+            Discover publicly visible information connected to your usernames,
+            emails, websites and names — then understand the risks and what you
+            can do next.
+          </p>
+          <div class="hero-actions" class="hero-actions-left">
+            <a id="startScan" class="btn btn-primary" href="scan.html"
+              >Start Scan →</a
+            >
+            <a class="btn btn-secondary" href="#how-it-works"
+              >See How It Works</a
+            >
           </div>
-        </article>
-        <article class="card benefit">
-          <div class="icon-box">⚡</div>
-          <div>
-            <h3>Act faster</h3>
-            <p>Prioritize the highest-risk findings instead of checking every profile manually.</p>
-          </div>
-        </article>
-        <article class="card benefit">
-          <div class="icon-box">✓</div>
-          <div>
-            <h3>Stay informed</h3>
-            <p>Keep scan history and reports so you can monitor changes over time.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-  <section class="section">
-    <div class="container">
-      <div class="card" class="cta-card"><span class="eyebrow">Privacy by design</span>
-        <h2 class="mt-14">We focus on publicly available information.</h2>
-        <p>Never enter passwords, OTPs, private messages or other sensitive credentials into a scan.</p><a
-          class="btn btn-primary" href="scan.html">Start a Safe Scan</a>
-      </div>
-    </div>
-  </section>
-  <footer class="footer">
-    <div class="container footer-grid">
-      <div><a class="logo" href="index.html"><span class="logo-mark">◈</span> FootprintGuard</a>
-        <p class="mt-12">A frontend template for privacy-aware digital footprint discovery.</p>
-      </div>
-      <div>
-        <h4>Product</h4><a href="#features">Features</a><a href="scan.html">New Scan</a><a
-          href="reports.html">Reports</a>
-      </div>
-      <div>
-        <h4>Account</h4><a href="login.html">Login</a><a href="signup.html">Create Account</a><a
-          href="profile.html">Profile</a>
-      </div>
-      <div>
-        <h4>Legal</h4><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Responsible Use</a>
-      </div>
-    </div>
-  </footer>
-  <script src="js/common.js"></script>
-  <script src="js/index.js"></script>
-</body>
 
+          <div class="trust-row" class="hero-actions-left">
+            <span>✓ Public data only</span>
+            <span>✓ No password collection</span>
+            <span>✓ Actionable reports</span>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="shield">
+            <div class="mini-stat one">● Scan status: <b>Protected</b></div>
+            <div class="mini-stat two">Risk score <b>72 / 100</b></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how-it-works">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Simple workflow</span>
+          <h2>How It Works</h2>
+          <p>
+            Three clear steps from search to actionable privacy recommendations.
+          </p>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card">
+            <div class="step-num">1</div>
+            <h3>Enter</h3>
+            <p>
+              Choose a scan type and enter a username, email, website or name.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="step-num">2</div>
+            <h3>Scan</h3>
+            <p>
+              Check publicly accessible sources and supported online profiles.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="step-num">3</div>
+            <h3>Analyze</h3>
+            <p>
+              Turn findings into a risk score, report and practical next steps.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Core capabilities</span>
+          <h2>Everything you need to understand your footprint</h2>
+        </div>
+        <div class="grid grid-4">
+          <article class="card">
+            <div class="icon-box">⌕</div>
+            <h3>Username Search</h3>
+            <p>
+              Find where a username appears across supported public platforms.
+            </p>
+          </article>
+          <article class="card">
+            <div class="icon-box">◎</div>
+            <h3>Email Exposure</h3>
+            <p>
+              Identify public references and exposure signals associated with an
+              email.
+            </p>
+          </article>
+          <article class="card">
+            <div class="icon-box">◴</div>
+            <h3>Risk Analysis</h3>
+            <p>Combine exposure categories into an easy-to-understand score.</p>
+          </article>
+          <article class="card">
+            <div class="icon-box">▤</div>
+            <h3>Detailed Report</h3>
+            <p>Review sources, findings, severity and recommended actions.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Why it matters</span>
+          <h2>Why Digital Footprint?</h2>
+          <p>
+            Your public information can build a picture of your online identity.
+            Awareness helps you decide what should stay public and what should
+            be reviewed.
+          </p>
+        </div>
+        <div class="grid grid-3">
+          <article class="card benefit">
+            <div class="icon-box">🛡</div>
+            <div>
+              <h3>Protect your privacy</h3>
+              <p>
+                Spot unnecessary public information before it becomes a bigger
+                problem.
+              </p>
+            </div>
+          </article>
+          <article class="card benefit">
+            <div class="icon-box">⚡</div>
+            <div>
+              <h3>Act faster</h3>
+              <p>
+                Prioritize the highest-risk findings instead of checking every
+                profile manually.
+              </p>
+            </div>
+          </article>
+          <article class="card benefit">
+            <div class="icon-box">✓</div>
+            <div>
+              <h3>Stay informed</h3>
+              <p>
+                Keep scan history and reports so you can monitor changes over
+                time.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="card" class="cta-card">
+          <span class="eyebrow">Privacy by design</span>
+          <h2 class="mt-14">We focus on publicly available information.</h2>
+          <p>
+            Never enter passwords, OTPs, private messages or other sensitive
+            credentials into a scan.
+          </p>
+          <a class="btn btn-primary" href="scan.html">Start a Safe Scan</a>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="logo" href="index.html"
+            ><span class="logo-mark">◈</span> FootprintGuard</a
+          >
+          <p class="mt-12">
+            A frontend template for privacy-aware digital footprint discovery.
+          </p>
+        </div>
+        <div>
+          <h4>Product</h4>
+          <a href="#features">Features</a><a href="scan.html">New Scan</a
+          ><a href="reports.html">Reports</a>
+        </div>
+        <div>
+          <h4>Account</h4>
+          <a href="login.html">Login</a><a href="signup.html">Create Account</a
+          ><a href="profile.html">Profile</a>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <a href="#">Privacy Policy</a><a href="#">Terms</a
+          ><a href="#">Responsible Use</a>
+        </div>
+      </div>
+    </footer>
+    <!-- home page js -->
+    <script></script>
+    <script>
+
+            document.addEventListener("DOMContentLoaded", () => {
+        $("#startScan")?.addEventListener(
+          "click",
+          () => (location.href = "scan.html"),
+        );
+      });
+    </script>
+  </body>
 </html>

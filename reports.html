@@ -1,71 +1,133 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Digital Footprint Detector — discover publicly visible information about your digital identity."
+    />
+    <title>Reports | Digital Footprint Detector</title>
+    <link rel="stylesheet" href="css/common.css" />
+    <style>
+      /* Reports page CSS */
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="Digital Footprint Detector — discover publicly visible information about your digital identity.">
-  <title>Reports | Digital Footprint Detector</title>
-  <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/reports">
-</head>
+.report-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px
+}
 
-<body class="">
+@media(max-width:900px) {
+    .report-grid {
+        grid-template-columns: 1fr 1fr
+    }
+}
 
-  <!-- Page content starts here -->
+@media(max-width:620px) {
+    .report-grid {
+        grid-template-columns: 1fr
+    }
+}
+    </style>
+  </head>
 
+  <body class="">
+    <!-- Page content starts here -->
 
-  <div class="app-shell">
-    <aside class="sidebar" id="sidebar">
-      <a class="logo" href="dashboard.html"><span class="logo-mark">◈</span> Footprint<span
-          class="logo-accent">Guard</span></a>
-      <nav class="side-links"><a class="" href="dashboard.html"><span>▦</span>Dashboard</a><a class=""
-          href="scan.html"><span>⌕</span>New Scan</a><a class="" href="history.html"><span>◷</span>History</a><a
-          class="active" href="reports.html"><span>▤</span>Reports</a><a class=""
-          href="profile.html"><span>♙</span>Profile</a></nav>
-      <div class="side-bottom"><a href="#" class="logout-btn" class="logout-btn">↪ Logout</a></div>
-    </aside>
-    <header class="app-nav">
-      <button id="mobileMenu" class="mobile-menu">☰</button>
-      <div class="logo">◈ Reports</div>
-      <div class="profile-mini"><button class="notification" title="Notifications">♧</button><a
-          href="profile.html"><span class="user-name">Ayush Kumar Gupta</span> <span
-            class="avatar user-initial">AK</span></a></div>
-    </header>
-    <main class="main">
-      <div class="page-title">
-        <div><span class="eyebrow">Saved analysis</span>
-          <h1 class="page-heading">My Reports</h1>
-        </div><a class="btn btn-primary" href="scan.html">＋ Generate Report</a>
-      </div>
-      <div id="reportGrid" class="report-grid">
-        <article class="card">
-          <h3>Username Scan</h3>
-          <p>ayush123</p>
-          <p><span class="badge badge-high">RISK: HIGH</span></p><small class="muted-text">Aug 11, 2026</small>
-          <div class="action-row mt-18"><a class="btn btn-secondary" href="results.html">View</a><button
-              class="btn btn-primary download-btn">Download</button></div>
-        </article>
-        <article class="card">
-          <h3>Email Scan</h3>
-          <p>abc@gmail.com</p>
-          <p><span class="badge badge-medium">RISK: MEDIUM</span></p><small class="muted-text">Aug 10, 2026</small>
-          <div class="action-row mt-18"><a class="btn btn-secondary" href="results.html">View</a><button
-              class="btn btn-primary download-btn">Download</button></div>
-        </article>
-        <article class="card">
-          <h3>Website Scan</h3>
-          <p>example.com</p>
-          <p><span class="badge badge-low">RISK: LOW</span></p><small class="muted-text">Aug 08, 2026</small>
-          <div class="action-row mt-18"><a class="btn btn-secondary" href="results.html">View</a><button
-              class="btn btn-primary download-btn">Download</button></div>
-        </article>
-      </div>
-    </main>
-  </div>
-  <script src="js/common.js"></script>
-  <script src="js/reports.js"></script>
-</body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <a class="logo" href="dashboard.html"
+          ><span class="logo-mark">◈</span> Footprint<span class="logo-accent"
+            >Guard</span
+          ></a
+        >
+        <nav class="side-links">
+          <a class="" href="dashboard.html"><span>▦</span>Dashboard</a
+          ><a class="" href="scan.html"><span>⌕</span>New Scan</a
+          ><a class="" href="history.html"><span>◷</span>History</a
+          ><a class="active" href="reports.html"><span>▤</span>Reports</a
+          ><a class="" href="profile.html"><span>♙</span>Profile</a>
+        </nav>
+        <div class="side-bottom">
+          <a href="#" class="logout-btn" class="logout-btn">↪ Logout</a>
+        </div>
+      </aside>
+      <header class="app-nav">
+        <button id="mobileMenu" class="mobile-menu">☰</button>
+        <div class="logo">◈ Reports</div>
+        <div class="profile-mini">
+          <button class="notification" title="Notifications">♧</button
+          ><a href="profile.html"
+            ><span class="user-name">Ayush Kumar Gupta</span>
+            <span class="avatar user-initial">AK</span></a
+          >
+        </div>
+      </header>
+      <main class="main">
+        <div class="page-title">
+          <div>
+            <span class="eyebrow">Saved analysis</span>
+            <h1 class="page-heading">My Reports</h1>
+          </div>
+          <a class="btn btn-primary" href="scan.html">＋ Generate Report</a>
+        </div>
+        <div id="reportGrid" class="report-grid">
+          <article class="card">
+            <h3>Username Scan</h3>
+            <p>ayush123</p>
+            <p><span class="badge badge-high">RISK: HIGH</span></p>
+            <small class="muted-text">Aug 11, 2026</small>
+            <div class="action-row mt-18">
+              <a class="btn btn-secondary" href="results.html">View</a
+              ><button class="btn btn-primary download-btn">Download</button>
+            </div>
+          </article>
+          <article class="card">
+            <h3>Email Scan</h3>
+            <p>abc@gmail.com</p>
+            <p><span class="badge badge-medium">RISK: MEDIUM</span></p>
+            <small class="muted-text">Aug 10, 2026</small>
+            <div class="action-row mt-18">
+              <a class="btn btn-secondary" href="results.html">View</a
+              ><button class="btn btn-primary download-btn">Download</button>
+            </div>
+          </article>
+          <article class="card">
+            <h3>Website Scan</h3>
+            <p>example.com</p>
+            <p><span class="badge badge-low">RISK: LOW</span></p>
+            <small class="muted-text">Aug 08, 2026</small>
+            <div class="action-row mt-18">
+              <a class="btn btn-secondary" href="results.html">View</a
+              ><button class="btn btn-primary download-btn">Download</button>
+            </div>
+          </article>
+        </div>
+      </main>
+    </div>
+     <!-- Reports page JS -->
+    <script src="js/common.js"></script>
+    <script>
 
+      document.addEventListener("DOMContentLoaded", () => {
+        const scans = JSON.parse(localStorage.getItem("dfdScans") || "[]");
+        if (scans.length) {
+          const grid = $("#reportGrid");
+          grid.innerHTML = scans
+            .slice(0, 6)
+            .map(
+              (s) =>
+                `<article class="card"><h3>${s.type} Scan</h3><p>${s.target}</p><p><span class="badge badge-high">RISK: ${s.risk || "HIGH"}</span></p><small style="color:var(--muted)">${s.date}</small><div style="display:flex;gap:8px;margin-top:18px"><a class="btn btn-secondary" href="results.html">View</a><button class="btn btn-primary download-btn">Download</button></div></article>`,
+            )
+            .join("");
+          $$(".download-btn").forEach(
+            (b) =>
+              (b.onclick = () =>
+                showToast("Connect a PDF generator/backend to enable downloads.")),
+          );
+        }
+      });
+    </script>
+  </body>
 </html>
