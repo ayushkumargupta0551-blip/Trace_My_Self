@@ -12,31 +12,743 @@
     <style>
       /* Index page CSS */
 
-.hero .hero-grid {
-    grid-template-columns: 1.2fr .8fr;
-    align-items: center;
-    gap: 40px
+      .hero .hero-grid {
+        grid-template-columns: 1.2fr 0.8fr;
+        align-items: center;
+        gap: 40px;
+      }
+
+      /* Keep the scan information centered */
+      .hero-visual {
+        display: flex;
+        justify-content: center;
+      }
+
+      .shield {
+        position: relative;
+        width: 320px;
+        min-height: 180px;
+      }
+
+      /* Scan status */
+      .mini-stat.one {
+        top: 20px;
+        left: 20px;
+      }
+
+      /* Risk score */
+      .mini-stat.two {
+        bottom: 20px;
+        right: 20px;
+      }
+
+      .benefit {
+        display: flex;
+        gap: 14px;
+      }
+
+      .benefit .icon-box {
+        flex: none;
+        margin: 0;
+      }
+
+      /* =====================================================
+   FINGERPRINT-STYLE DARK THEME
+   Only visual styling is changed.
+   HTML content remains the same.
+   ===================================================== */
+
+      :root {
+        --bg-main: #151515;
+        --bg-secondary: #181818;
+        --card-bg: #242424;
+        --card-hover: #292929;
+
+        --text-main: #f2f2f2;
+        --text-secondary: #a5a5a5;
+        --text-muted: #777777;
+
+        --border: #303030;
+
+        --accent: #4f9cff;
+        --accent-light: #70b0ff;
+
+        --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      }
+
+      /* =========================
+   MAIN PAGE BACKGROUND
+   ========================= */
+
+      body {
+        background:
+          radial-gradient(
+            circle at 85% 35%,
+            rgba(45, 75, 105, 0.1),
+            transparent 30%
+          ),
+          radial-gradient(
+            circle at 15% 65%,
+            rgba(35, 55, 75, 0.08),
+            transparent 30%
+          ),
+          #151515;
+
+        color: var(--text-main);
+      }
+
+      /* =========================
+   NAVBAR
+   ========================= */
+
+      .site-nav {
+        background: rgba(21, 21, 21, 0.92);
+        border-bottom: 1px solid #292929;
+        backdrop-filter: blur(10px);
+      }
+
+      /* =========================
+   HERO SECTION
+   ========================= */
+
+      .hero {
+        background:
+          radial-gradient(
+            circle at 15% 20%,
+            rgba(45, 75, 110, 0.1),
+            transparent 25%
+          ),
+          radial-gradient(
+            circle at 90% 80%,
+            rgba(45, 75, 110, 0.08),
+            transparent 28%
+          ),
+          #151515;
+      }
+
+      /* =========================
+   HERO TEXT
+   ========================= */
+
+      .hero h1 {
+        color: #f4f4f4;
+      }
+
+      .hero p {
+        color: #a5a5a5;
+      }
+
+      /* =========================
+   SMALL LABELS
+   ========================= */
+
+      .eyebrow {
+        color: #5da7ff;
+      }
+
+      /* =========================
+   BUTTONS
+   ========================= */
+
+      .btn-primary {
+        background: #4f9cff;
+        color: #ffffff;
+        border: 1px solid #4f9cff;
+      }
+
+      .btn-primary:hover {
+        background: #68aaff;
+      }
+
+      .btn-secondary {
+        background: #202020;
+        color: #f2f2f2;
+        border: 1px solid #3a3a3a;
+      }
+
+      .btn-secondary:hover {
+        background: #292929;
+      }
+
+      /* =========================
+   SECTIONS
+   ========================= */
+
+      .section {
+        background: #151515;
+      }
+
+      /* =========================
+   SECTION HEADINGS
+   ========================= */
+
+      .section-head h2 {
+        color: #f2f2f2;
+      }
+
+      .section-head p {
+        color: #999999;
+      }
+
+      /* =========================
+   CARDS
+   ========================= */
+
+      .card {
+        background: #242424;
+        border: 1px solid #333333;
+        box-shadow: none;
+        color: #f2f2f2;
+      }
+
+      .card:hover {
+        background: #292929;
+        border-color: #414141;
+      }
+
+      /* =========================
+   CARD TEXT
+   ========================= */
+
+      .card h3 {
+        color: #f2f2f2;
+      }
+
+      .card p {
+        color: #9d9d9d;
+      }
+
+      /* =========================
+   ICON BOX
+   ========================= */
+
+      .icon-box {
+        background: #303030;
+        color: #65aaff;
+        border: 1px solid #3b3b3b;
+      }
+
+      /* =========================
+   STEP NUMBER
+   ========================= */
+
+      .step-num {
+        background: #303030;
+        color: #65aaff;
+      }
+
+      /* =========================
+   BENEFITS
+   ========================= */
+
+      .benefit {
+        background: #242424;
+      }
+
+      /* =========================
+   TRUST ROW
+   ========================= */
+
+      .trust-row {
+        color: #999999;
+      }
+
+      /* =========================
+   CTA CARD
+   ========================= */
+
+      .cta-card {
+        background: #202020;
+        border: 1px solid #333333;
+      }
+
+      /* =========================
+   FOOTER
+   ========================= */
+
+      .footer {
+        background: #111111;
+        border-top: 1px solid #292929;
+      }
+
+      .footer p,
+      .footer a {
+        color: #888888;
+      }
+
+      .footer a:hover {
+        color: #ffffff;
+      }
+
+      /* ========================================
+   FAQ SECTION
+======================================== */
+
+      .faq-section {
+        padding-top: 80px;
+        padding-bottom: 80px;
+      }
+
+      .faq-header {
+        max-width: 750px;
+        margin: 0 auto 40px;
+        text-align: center;
+      }
+
+      .faq-header h2 {
+        margin-top: 12px;
+        margin-bottom: 12px;
+      }
+
+      .faq-header p {
+        max-width: 650px;
+        margin: 0 auto;
+      }
+
+      /* FAQ container */
+
+      .faq-container {
+        max-width: 850px;
+        margin: 0 auto;
+
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      /* FAQ item */
+
+      .faq-item {
+        overflow: hidden;
+
+        background: #181818;
+
+        border: 1px solid #2e2e2e;
+        border-radius: 12px;
+
+        transition:
+          border-color 0.2s ease,
+          background 0.2s ease;
+      }
+
+      .faq-item:hover {
+        border-color: #414141;
+      }
+
+      /* Question */
+
+      .faq-question {
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 20px;
+
+        padding: 20px;
+
+        background: transparent;
+        border: none;
+
+        color: #f5f5f5;
+
+        font-family: inherit;
+        font-size: 1rem;
+        font-weight: 600;
+
+        text-align: left;
+
+        cursor: pointer;
+      }
+
+      /* Plus icon */
+
+      .faq-icon {
+        width: 30px;
+        height: 30px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        flex-shrink: 0;
+
+        border: 1px solid #444;
+        border-radius: 50%;
+
+        color: #8aa7ff;
+
+        font-size: 1.2rem;
+
+        transition: transform 0.25s ease;
+      }
+
+      /* Answer */
+
+      .faq-answer {
+        max-height: 0;
+
+        overflow: hidden;
+
+        padding: 0 20px;
+
+        transition:
+          max-height 0.3s ease,
+          padding 0.3s ease;
+      }
+
+      .faq-answer p {
+        margin: 0;
+
+        color: #9b9b9b;
+
+        font-size: 0.92rem;
+        line-height: 1.7;
+      }
+
+      /* Active question */
+
+      .faq-item.active {
+        background: #1d1d1d;
+        border-color: #3a3a3a;
+      }
+
+      .faq-item.active .faq-answer {
+        max-height: 400px;
+        padding: 0 20px 20px;
+      }
+
+      .faq-item.active .faq-icon {
+        transform: rotate(45deg);
+      }
+
+      /* ========================================
+   RESPONSIVE
+======================================== */
+
+      @media (max-width: 700px) {
+        .faq-section {
+          padding-top: 60px;
+          padding-bottom: 60px;
+        }
+
+        .faq-header {
+          margin-bottom: 30px;
+        }
+
+        .faq-header h2 {
+          font-size: 1.7rem;
+        }
+
+        .faq-question {
+          padding: 17px;
+          font-size: 0.95rem;
+        }
+
+        .faq-answer {
+          padding-left: 17px;
+          padding-right: 17px;
+        }
+
+        .faq-item.active .faq-answer {
+          padding-left: 17px;
+          padding-right: 17px;
+          padding-bottom: 17px;
+        }
+      }
+
+      @media (max-width: 450px) {
+        .faq-question {
+          gap: 12px;
+          padding: 15px;
+        }
+
+        .faq-icon {
+          width: 27px;
+          height: 27px;
+        }
+
+        .faq-answer p {
+          font-size: 0.88rem;
+        }
+      }
+    
+      /* =========================================
+   DISCOVER SECTION
+   ========================================= */
+
+.discover-section {
+    width: 100%;
+    background: #111111;
+    padding: 90px 20px 100px;
 }
 
-.hero-visual {
-    padding: 20px;
-}
-.shield {
-  display: flex;
-  gap: 30px;
-  flex-direction:row;
-  justify-content: center;
+.discover-container {
+    width: 100%;
+    max-width: 1040px;
+    margin: 0 auto;
 }
 
-.benefit {
+
+/* -----------------------------------------
+   Heading
+   ----------------------------------------- */
+
+.discover-title {
+    margin: 0 0 58px;
+
+    text-align: center;
+
+    color: #f5f5f5;
+
+    font-size: 44px;
+    font-weight: 400;
+    line-height: 1.2;
+
+    letter-spacing: -1px;
+}
+
+
+/* -----------------------------------------
+   Grid
+   ----------------------------------------- */
+
+.discover-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 30px;
+}
+
+
+/* -----------------------------------------
+   Cards
+   ----------------------------------------- */
+
+.discover-card {
+    min-height: 244px;
+
+    padding: 30px;
+
+    background: #111111;
+
+    border: 1px solid #3b3b3b;
+
+    border-radius: 15px;
+
+    transition:
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+
+/* Hover */
+
+.discover-card:hover {
+    border-color: #555555;
+
+    background: #141414;
+
+    transform: translateY(-2px);
+}
+
+
+/* -----------------------------------------
+   Icon Box
+   ----------------------------------------- */
+
+.discover-icon {
+    width: 60px;
+    height: 60px;
+
     display: flex;
-    gap: 14px;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 24px;
+
+    background: #121b2d;
+
+    border-radius: 9px;
 }
 
-.benefit .icon-box {
-    flex: none;
-    margin: 0px;
+
+/* SVG Icon */
+
+.discover-icon svg {
+    width: 29px;
+    height: 29px;
+
+    fill: none;
+
+    stroke: #6d95ff;
+
+    stroke-width: 1.8;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
+
+
+/* -----------------------------------------
+   Card Heading
+   ----------------------------------------- */
+
+.discover-card h3 {
+    margin: 0 0 12px;
+
+    color: #f5f5f5;
+
+    font-size: 23px;
+    font-weight: 400;
+
+    line-height: 1.35;
+}
+
+
+/* -----------------------------------------
+   Card Description
+   ----------------------------------------- */
+
+.discover-card p {
+    margin: 0;
+
+    color: #9da9bd;
+
+    font-size: 17px;
+
+    line-height: 1.65;
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 800px) {
+
+    .discover-section {
+        padding: 70px 20px 80px;
+    }
+
+    .discover-title {
+        font-size: 36px;
+
+        margin-bottom: 45px;
+    }
+
+    .discover-grid {
+        gap: 20px;
+    }
+
+    .discover-card {
+        padding: 25px;
+
+        min-height: 230px;
+    }
+
+    .discover-card h3 {
+        font-size: 20px;
+    }
+
+    .discover-card p {
+        font-size: 15px;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .discover-section {
+        padding: 60px 16px 70px;
+    }
+
+    .discover-container {
+        max-width: 100%;
+    }
+
+    .discover-title {
+        font-size: 30px;
+
+        line-height: 1.3;
+
+        letter-spacing: -0.5px;
+
+        margin-bottom: 35px;
+    }
+
+    .discover-grid {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+    .discover-card {
+        min-height: auto;
+
+        padding: 24px;
+    }
+
+    .discover-icon {
+        width: 56px;
+        height: 56px;
+
+        margin-bottom: 20px;
+    }
+
+    .discover-icon svg {
+        width: 27px;
+        height: 27px;
+    }
+
+    .discover-card h3 {
+        font-size: 20px;
+
+        line-height: 1.4;
+    }
+
+    .discover-card p {
+        font-size: 15px;
+
+        line-height: 1.6;
+    }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+   ========================================= */
+
+@media (max-width: 400px) {
+
+    .discover-section {
+        padding: 50px 14px 60px;
+    }
+
+    .discover-title {
+        font-size: 26px;
+    }
+
+    .discover-card {
+        padding: 20px;
+    }
+
+    .discover-card h3 {
+        font-size: 18px;
+    }
+
+    .discover-card p {
+        font-size: 14px;
+    }
+}
+
     </style>
   </head>
 
@@ -87,13 +799,6 @@
             <span>✓ Public data only</span>
             <span>✓ No password collection</span>
             <span>✓ Actionable reports</span>
-          </div>
-        </div>
-
-        <div class="hero-visual">
-          <div class="shield">
-            <div class="mini-stat one">● Scan status: <b>Protected</b></div>
-            <div class="mini-stat two">Risk score <b>72 / 100</b></div>
           </div>
         </div>
       </div>
@@ -230,6 +935,351 @@
         </div>
       </div>
     </section>
+
+     <!-- discover section -->
+
+    <section class="discover-section">
+
+  <div class="discover-container">
+
+    <h2 class="discover-title">
+      What TraceMySelf Helps You Discover
+    </h2>
+
+    <div class="discover-grid">
+
+      <!-- Card 1 -->
+      <article class="discover-card">
+        <div class="discover-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="7" r="4"></circle>
+            <path d="M5 21v-2a7 7 0 0 1 14 0v2"></path>
+          </svg>
+        </div>
+
+        <h3>Where your username appears online</h3>
+
+        <p>
+          See what attackers see — identify accounts and profiles linked to
+          usernames you use across hundreds of platforms
+        </p>
+      </article>
+
+
+      <!-- Card 2 -->
+      <article class="discover-card">
+        <div class="discover-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+            <path d="m3 7 9 6 9-6"></path>
+          </svg>
+        </div>
+
+        <h3>Whether your email is publicly exposed</h3>
+
+        <p>
+          Triage your digital risks — check breach databases and public
+          exposure sources before they're exploited
+        </p>
+      </article>
+
+
+      <!-- Card 3 -->
+      <article class="discover-card">
+        <div class="discover-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <ellipse cx="12" cy="5" rx="8" ry="3"></ellipse>
+            <path d="M4 5v7c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path>
+            <path d="M4 12v7c0 1.7 3.6 3 8 3s8-1.3 8-3v-7"></path>
+          </svg>
+        </div>
+
+        <h3>Data broker listings linked to your identity</h3>
+
+        <p>
+          Know exactly where people-search sites list your information —
+          the intelligence you need before buying removals
+        </p>
+      </article>
+
+
+      <!-- Card 4 -->
+      <article class="discover-card">
+        <div class="discover-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M10 13a5 5 0 0 0 7.1.1l2-2a5 5 0 0 0-7.1-7.1l-1.1 1.1"></path>
+            <path d="M14 11a5 5 0 0 0-7.1-.1l-2 2A5 5 0 0 0 12 20l1.1-1.1"></path>
+          </svg>
+        </div>
+
+        <h3>Hidden connections between public information</h3>
+
+        <p>
+          Understand how identifiers link across platforms — the correlation
+          risk most tools miss
+        </p>
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+    <!-- Frequently ask question -->
+
+    <section class="section faq-section" id="faq">
+      <div class="container">
+        <div class="section-head faq-header">
+          <span class="eyebrow">Frequently Asked Questions</span>
+          <h2>Frequently Asked Questions</h2>
+          <p>
+            Find answers to common questions about digital footprints, public
+            information, scanning, privacy, and risk analysis.
+          </p>
+        </div>
+
+        <div class="faq-container">
+          <!-- FAQ 1 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>What is a digital footprint?</span>
+              <span class="faq-icon">+</span>
+            </button>
+
+            <div class="faq-answer">
+              <p>
+                A digital footprint is the information about you that can be
+                found online through websites, usernames, social profiles,
+                public pages, and other publicly available sources.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>What does Digital Footprint Detector scan?</span>
+              <span class="faq-icon">+</span>
+            </button>
+
+            <div class="faq-answer">
+              <p>
+                Digital Footprint Detector can scan supported publicly available
+                information associated with usernames, email addresses,
+                websites, and names.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span
+                >Is my data private when using Digital Footprint Detector?</span
+              >
+              <span class="faq-icon">+</span>
+            </button>
+
+            <div class="faq-answer">
+              <p>
+                The application is designed to work with publicly available
+                information. You should never enter passwords, OTPs, private
+                messages, or other sensitive credentials into a scan.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>What sensitive data should I NOT enter?</span>
+              <span class="faq-icon">+</span>
+            </button>
+
+            <div class="faq-answer">
+              <p>
+                Never enter passwords, OTPs, private messages, banking details,
+                authentication codes, or other sensitive credentials into the
+                scanning system.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>Can I use the system to look up other people?</span>
+              <span class="faq-icon">+</span>
+            </button>
+
+            <div class="faq-answer">
+              <p>
+                Scans should only be performed for legitimate and responsible
+                purposes using publicly available information. Do not use the
+                system to harass, stalk, impersonate, or harm another person.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 6 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>How is this different from Have I Been Pwned?</span>
+              <span class="faq-icon">+</span>
+            </button>
+
+            <div class="faq-answer">
+              <p>
+                Have I Been Pwned primarily focuses on checking whether an email
+                address has appeared in known data breaches. Digital Footprint
+                Detector is designed to provide a broader view of publicly
+                available digital exposure across supported scan types.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 7 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>Does Digital Footprint Detector remove my data?</span>
+              <span class="faq-icon">+</span>
+            </button>
+
+            <div class="faq-answer">
+              <p>
+                No. The system is designed to help you discover and understand
+                publicly available information. Removing information from a
+                third-party website generally requires contacting that website
+                or service directly.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 8 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>Does the system scan the dark web?</span>
+              <span class="faq-icon">+</span>
+            </button>
+
+            <div class="faq-answer">
+              <p>
+                The current system focuses on publicly accessible information.
+                Dark-web monitoring is not included unless a supported
+                integration is specifically added in the future.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 9 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span
+                >Is using a digital footprint scanner legal and ethical?</span
+              >
+              <span class="faq-icon">+</span>
+            </button>
+
+            <div class="faq-answer">
+              <p>
+                Searching publicly available information can be used for
+                legitimate purposes, but responsible use is important. Do not
+                use scan results to harass, stalk, impersonate, or harm others.
+                Always respect applicable laws and the terms of the services
+                being searched.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 10 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>What is OSINT and why does it matter?</span>
+              <span class="faq-icon">+</span>
+            </button>
+
+            <div class="faq-answer">
+              <p>
+                OSINT stands for Open-Source Intelligence. It refers to
+                information collected from publicly available sources.
+                Understanding OSINT can help you recognize how much information
+                about your online identity may be publicly visible.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 11 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>How do I interpret probabilistic matches?</span>
+              <span class="faq-icon">+</span>
+            </button>
+
+            <div class="faq-answer">
+              <p>
+                A probabilistic match means that available information suggests
+                a possible connection, but it does not necessarily confirm that
+                the result belongs to the person being searched. Results should
+                always be reviewed carefully before drawing conclusions.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 12 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span
+                >Is the system safe for people in sensitive situations?</span
+              >
+              <span class="faq-icon">+</span>
+            </button>
+
+            <div class="faq-answer">
+              <p>
+                If discovering publicly available information could create a
+                safety concern, use the system carefully. Avoid entering
+                sensitive personal information and consider the potential risks
+                before performing a search.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 13 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>Do I need technical knowledge to use the system?</span>
+              <span class="faq-icon">+</span>
+            </button>
+
+            <div class="faq-answer">
+              <p>
+                No. The interface is designed to be simple. Choose a scan type,
+                enter the relevant information, and start the scan. The results
+                are presented in an easy-to-understand format.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 14 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>Where do reputation and risk signals come from?</span>
+              <span class="faq-icon">+</span>
+            </button>
+
+            <div class="faq-answer">
+              <p>
+                Risk and reputation signals depend on the information discovered
+                from supported public sources and the analysis rules used by the
+                application. Results may vary depending on source availability.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <footer class="footer">
       <div class="container footer-grid">
         <div>
@@ -260,12 +1310,25 @@
     <!-- home page js -->
     <script></script>
     <script>
-
-            document.addEventListener("DOMContentLoaded", () => {
+      document.addEventListener("DOMContentLoaded", () => {
         $("#startScan")?.addEventListener(
           "click",
           () => (location.href = "scan.html"),
         );
+      });
+
+      document.querySelectorAll(".faq-question").forEach((question) => {
+        question.addEventListener("click", () => {
+          const currentItem = question.closest(".faq-item");
+
+          document.querySelectorAll(".faq-item").forEach((item) => {
+            if (item !== currentItem) {
+              item.classList.remove("active");
+            }
+          });
+
+          currentItem.classList.toggle("active");
+        });
       });
     </script>
   </body>

@@ -28,11 +28,18 @@ html {
 }
 
 body {
-  margin: 0;
-  font-family: Inter, Segoe UI, Arial, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6
+     background:
+    radial-gradient(
+      circle at 85% 35%,
+      rgba(45, 75, 105, 0.10),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 15% 65%,
+      rgba(35, 55, 75, 0.08),
+      transparent 30%
+    ),
+    #151515;
 }
 
 a {
@@ -221,7 +228,7 @@ p {
 .hero:before {
   width: 420px;
   height: 420px;
-  background: #315dff;
+  background:#3a3a3a;
   top: -180px;
   left: -150px
 }
@@ -229,7 +236,7 @@ p {
 .hero:after {
   width: 360px;
   height: 360px;
-  background: #7b61ff;
+  background:#303030;
   right: -130px;
   bottom: -160px
 }
@@ -282,8 +289,8 @@ p {
 }
 
 .card {
-  background: linear-gradient(180deg, rgba(17, 36, 58, .9), rgba(13, 27, 46, .9));
-  border: 1px solid var(--border);
+  background: #242424;
+  border: 1px solid #333333;
   border-radius: var(--radius);
   padding: 22px;
   box-shadow: var(--shadow)
@@ -333,7 +340,7 @@ p {
 .footer {
   border-top: 1px solid var(--border);
   padding: 35px 0;
-  background: #050d18
+  background: #111111;
 }
 
 .footer-grid {
@@ -558,6 +565,7 @@ p {
   display: flex;
   gap: 11px;
   align-items: center
+  
 }
 
 .side-links a:hover,

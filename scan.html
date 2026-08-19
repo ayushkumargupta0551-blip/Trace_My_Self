@@ -12,29 +12,269 @@
     <style>
       /* Scan page CSS */
 
-.scan-card {
-    max-width: 800px;
-    margin: auto
-}
 
-.info-line {
+  /* -----------------------------------------
+     Scan Card
+     ----------------------------------------- */
+
+  .scan-card {
+    max-width: 800px;
+    margin: 0 auto;
+
+    background: #242424;
+    border: 1px solid #333333;
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+  }
+
+
+  /* -----------------------------------------
+     Section Heading
+     ----------------------------------------- */
+
+  .scan-card .section-head h2 {
+    color: #f5f5f5;
+  }
+
+  .scan-card .section-head p {
+    color: #999999;
+  }
+
+
+  /* -----------------------------------------
+     Scan Type Selection
+     ----------------------------------------- */
+
+  .scan-type {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 22px;
+  }
+
+  .scan-type label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 10px 16px;
+
+    color: #cccccc;
+
+    background: #1c1c1c;
+
+    border: 1px solid #333333;
+    border-radius: 10px;
+
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
+
+  .scan-type label:hover {
+    background: #2a2a2a;
+    border-color: #4f8cff;
+  }
+
+  .scan-type input {
+    accent-color: #4f8cff;
+  }
+
+  .scan-type input:checked + * {
+    color: #ffffff;
+  }
+
+
+  /* -----------------------------------------
+     Input Section
+     ----------------------------------------- */
+
+  .form-group {
+    margin-top: 22px;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+
+    color: #f5f5f5;
+    font-weight: 500;
+  }
+
+  .input {
+    width: 100%;
+    padding: 13px 15px;
+
+    color: #f5f5f5;
+    background: #1c1c1c;
+
+    border: 1px solid #333333;
+    border-radius: 10px;
+
+    outline: none;
+
+    transition: 0.2s ease;
+  }
+
+  .input::placeholder {
+    color: #777777;
+  }
+
+  .input:focus {
+    border-color: #4f8cff;
+    box-shadow: 0 0 0 3px rgba(79, 140, 255, 0.12);
+  }
+
+
+  /* -----------------------------------------
+     Error Message
+     ----------------------------------------- */
+
+  .error {
+    display: none;
+    margin-top: 10px;
+
+    color: #ff6b6b;
+    font-size: 0.9rem;
+  }
+
+
+  /* -----------------------------------------
+     Start Scan Button
+     ----------------------------------------- */
+
+  .scan-submit {
+    margin-top: 22px;
+  }
+
+
+  /* -----------------------------------------
+     Privacy Warning
+     ----------------------------------------- */
+
+  .warning {
+    padding: 15px 16px;
+
+    color: #d6d6d6;
+
+    background: #2a2115;
+
+    border: 1px solid #55452d;
+    border-radius: 12px;
+  }
+
+  .warning b {
+    color: #f5f5f5;
+  }
+
+  .small-text {
+    color: #999999;
+  }
+
+
+  /* -----------------------------------------
+     Information Line
+     ----------------------------------------- */
+
+  .info-line {
     display: flex;
     gap: 10px;
-    align-items: center;
-    margin-top: 10px;
-    color: var(--muted);
-    font-size: .85rem
-}
 
-.help {
+    align-items: center;
+
+    margin-top: 14px;
+
+    color: #999999;
+
+    font-size: 0.85rem;
+  }
+
+
+  /* Help Icon */
+
+  .help {
     width: 22px;
     height: 22px;
-    border-radius: 50%;
+
+    flex-shrink: 0;
+
     display: grid;
     place-items: center;
-    background: var(--surface-2);
-    border: 1px solid var(--border)
-}
+
+    color: #cccccc;
+
+    background: #1c1c1c;
+
+    border: 1px solid #333333;
+    border-radius: 50%;
+  }
+
+
+  /* -----------------------------------------
+     Page Background
+     ----------------------------------------- */
+
+  .main {
+    background: #151515;
+  }
+
+
+  /* -----------------------------------------
+     Sidebar
+     ----------------------------------------- */
+
+  .sidebar {
+    background: #111111;
+    border-right: 1px solid #333333;
+  }
+
+  .side-links a {
+    color: #999999;
+
+    transition: 0.2s ease;
+  }
+
+  .side-links a:hover {
+    color: #f5f5f5;
+    background: #242424;
+  }
+
+  .side-links a.active {
+    color: #ffffff;
+    background: #242424;
+  }
+
+
+  /* -----------------------------------------
+     Top Navigation
+     ----------------------------------------- */
+
+  .app-nav {
+    background: #111111;
+    border-bottom: 1px solid #333333;
+  }
+
+  .app-nav .logo {
+    color: #f5f5f5;
+  }
+
+  .profile-mini .user-name {
+    color: #cccccc;
+  }
+
+  .notification {
+    color: #999999;
+  }
+
+
+  /* -----------------------------------------
+     Page Heading
+     ----------------------------------------- */
+
+  .page-heading {
+    color: #f5f5f5;
+  }
+    
     </style>
   </head>
 

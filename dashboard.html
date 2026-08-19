@@ -11,41 +11,248 @@
   <style>
       /* Dashboard page CSS */ 
 
+/* -----------------------------------------
+   Welcome Section
+   ----------------------------------------- */
+
 .welcome {
-    padding: 28px;
-    background: linear-gradient(135deg, #102b50, #171c3d);
-    border-radius: 20px;
-    border: 1px solid var(--border);
-    margin-bottom: 20px
+  padding: 28px;
+  margin-bottom: 20px;
+
+  background: #1c1c1c;
+
+  border: 1px solid #333333;
+  border-radius: 20px;
+
+  box-shadow: var(--shadow);
 }
 
-.grid-2{
-  margin-top: 50px;
+.welcome h2 {
+  color: #f5f5f5;
 }
+
+.welcome p {
+  color: #999999;
+}
+
+
+/* -----------------------------------------
+   Quick Actions
+   ----------------------------------------- */
 
 .quick-actions {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 20px;
 }
 
+
+/* -----------------------------------------
+   Statistics Cards
+   ----------------------------------------- */
+
+.stat-card {
+  background: #242424;
+
+  border: 1px solid #333333;
+  border-radius: var(--radius);
+
+  box-shadow: var(--shadow);
+}
+
+.stat-value {
+  color: #f5f5f5;
+}
+
+.stat-label {
+  color: #999999;
+}
+
+.stat-icon {
+  background: #303030;
+  color: #4f8cff;
+
+  border-radius: 12px;
+}
+
+
+/* -----------------------------------------
+   Risk Overview & Recent Activity
+   ----------------------------------------- */
+
+.grid-2 {
+  margin-top: 30px;
+}
+
+.grid-2 .card {
+  background: #242424;
+
+  border: 1px solid #333333;
+  border-radius: var(--radius);
+
+  box-shadow: var(--shadow);
+}
+
+
+/* -----------------------------------------
+   Risk Rows
+   ----------------------------------------- */
+
+.risk-row {
+  margin-top: 22px;
+}
+
+.risk-row-head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.risk-row-head span {
+  color: #999999;
+}
+
+.risk-row-head b {
+  color: #f5f5f5;
+}
+
+
+/* -----------------------------------------
+   Progress Bar
+   ----------------------------------------- */
+
+.progress {
+  height: 8px;
+
+  background: #333333;
+
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    #4f8cff,
+    #7b61ff
+  );
+
+  border-radius: 10px;
+}
+
+
+/* -----------------------------------------
+   Activity Section
+   ----------------------------------------- */
+
 .activity-item {
-    display: flex;
-    gap: 12px;
-    padding: 14px 0;
-    border-bottom: 1px solid var(--border)
+  display: flex;
+  gap: 12px;
+
+  padding: 14px 0;
+
+  border-bottom: 1px solid #333333;
 }
 
 .activity-item:last-child {
-    border-bottom: 0
+  border-bottom: 0;
 }
 
+.activity-item b {
+  color: #f5f5f5;
+}
+
+.activity-item p {
+  color: #999999;
+}
+
+
+/* Activity Dot */
+
 .dot {
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background: var(--primary);
-    margin-top: 8px
+  width: 9px;
+  height: 9px;
+
+  margin-top: 8px;
+
+  border-radius: 50%;
+
+  background: #4f8cff;
+
+  box-shadow: 0 0 10px rgba(79, 140, 255, 0.5);
+}
+
+
+/* -----------------------------------------
+   Sidebar
+   ----------------------------------------- */
+
+.sidebar {
+  background: #111111;
+
+  border-right: 1px solid #333333;
+}
+
+.side-links a {
+  color: #999999;
+
+  transition: 0.2s ease;
+}
+
+.side-links a:hover {
+  color: #f5f5f5;
+
+  background: #242424;
+}
+
+.side-links a.active {
+  color: #ffffff;
+
+  background: #242424;
+}
+
+
+/* -----------------------------------------
+   Dashboard Navbar
+   ----------------------------------------- */
+
+.app-nav {
+  background: #111111;
+
+  border-bottom: 1px solid #333333;
+}
+
+.app-nav .logo {
+  color: #f5f5f5;
+}
+
+.profile-mini .user-name {
+  color: #cccccc;
+}
+
+.notification {
+  color: #999999;
+}
+
+
+/* -----------------------------------------
+   Page Heading
+   ----------------------------------------- */
+
+.page-heading {
+  color: #f5f5f5;
+}
+
+
+/* -----------------------------------------
+   Main Dashboard Background
+   ----------------------------------------- */
+
+.main {
+  background: #151515;
 }
   </style>
 </head>
