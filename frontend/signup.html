@@ -8,30 +8,306 @@
       content="Digital Footprint Detector — discover publicly visible information about your digital identity."
     />
     <title>Create Account | Digital Footprint Detector</title>
-    <link rel="stylesheet" href="css/common.css" />
     <style>
-      /* Signup page CSS */
+     /* Signup page CSS */
+
+/* -----------------------------------------
+   Page Layout
+   ----------------------------------------- */
+
+.auth-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 30px 15px;
+
+  background:
+    radial-gradient(
+      circle at 85% 35%,
+      rgba(45, 75, 105, 0.10),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 15% 65%,
+      rgba(35, 55, 75, 0.08),
+      transparent 30%
+    ),
+    #151515;
+
+  color: #edf5ff;
+}
+
+
+/* -----------------------------------------
+   Signup Card
+   ----------------------------------------- */
+
+.auth-card {
+  width: min(470px, 100%);
+  padding: 32px;
+
+  background: #242424;
+  border: 1px solid #333333;
+  border-radius: 18px;
+
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+}
+
+
+/* -----------------------------------------
+   Header
+   ----------------------------------------- */
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.auth-header .logo {
+  justify-content: center;
+  margin-bottom: 22px;
+
+  color: #f5f5f5;
+}
+
+.auth-header .logo-mark {
+  background: linear-gradient(135deg, #4f8cff, #7b61ff);
+}
+
+.auth-title {
+  color: #f5f5f5;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.auth-header p {
+  color: #999999;
+}
+
+
+/* -----------------------------------------
+   Form
+   ----------------------------------------- */
+
+.form-group {
+  margin-top: 18px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+
+  color: #f5f5f5;
+  font-weight: 500;
+}
+
+
+/* -----------------------------------------
+   Input
+   ----------------------------------------- */
+
+.input {
+  width: 100%;
+  padding: 13px 15px;
+
+  color: #f5f5f5;
+  background: #1c1c1c;
+
+  border: 1px solid #333333;
+  border-radius: 10px;
+
+  outline: none;
+  transition: 0.2s ease;
+}
+
+.input::placeholder {
+  color: #777777;
+}
+
+.input:focus {
+  border-color: #4f8cff;
+  box-shadow: 0 0 0 3px rgba(79, 140, 255, 0.12);
+}
+
+
+/* -----------------------------------------
+   Password Input
+   ----------------------------------------- */
+
+.input-wrap {
+  position: relative;
+}
+
+.input-wrap .input {
+  padding-right: 65px;
+}
+
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+
+  transform: translateY(-50%);
+
+  padding: 4px 6px;
+
+  color: #9db0c7;
+  background: transparent;
+
+  border: 0;
+}
+
+.password-toggle:hover {
+  color: #ffffff;
+}
+
+
+/* -----------------------------------------
+   Password Strength
+   ----------------------------------------- */
 
 .strength {
-    margin-top: 8px
+  margin-top: 8px;
 }
 
 .strength-bars {
-    display: flex;
-    gap: 4px
+  display: flex;
+  gap: 4px;
 }
 
 .strength-bars span {
-    height: 4px;
-    flex: 1;
-    border-radius: 4px;
-    background: #26384d
+  height: 4px;
+  flex: 1;
+
+  border-radius: 4px;
+  background: #26384d;
 }
 
 .strength-text {
-    font-size: .75rem;
-    color: var(--muted);
-    margin-top: 4px
+  margin-top: 4px;
+
+  color: #999999;
+  font-size: 0.75rem;
+}
+
+
+/* -----------------------------------------
+   Terms Checkbox
+   ----------------------------------------- */
+
+.checkbox {
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+
+  margin-top: 20px;
+
+  color: #999999;
+  font-size: 0.85rem;
+}
+
+.checkbox input {
+  margin-top: 4px;
+  accent-color: #4f8cff;
+}
+
+.checkbox .helper-link {
+  color: #76a7ff;
+}
+
+.checkbox .helper-link:hover {
+  color: #9dc0ff;
+}
+
+
+/* -----------------------------------------
+   Error Message
+   ----------------------------------------- */
+
+.error {
+  display: none;
+  margin: 12px 0;
+
+  color: #ff6b6b;
+  font-size: 0.9rem;
+}
+
+
+/* -----------------------------------------
+   Create Account Button
+   ----------------------------------------- */
+
+.btn {
+  border: 0;
+  border-radius: 12px;
+  padding: 11px 17px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  font-weight: 700;
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: #4f8cff;
+  color: #ffffff;
+
+  box-shadow: 0 10px 25px rgba(79, 140, 255, 0.2);
+}
+
+.btn-block {
+  width: 100%;
+  margin-top: 20px;
+}
+
+
+/* -----------------------------------------
+   Footer
+   ----------------------------------------- */
+
+.auth-footer {
+  margin-top: 22px;
+
+  text-align: center;
+
+  color: #999999;
+  font-size: 0.9rem;
+}
+
+.helper-link {
+  color: #76a7ff;
+}
+
+.helper-link:hover {
+  color: #9dc0ff;
+}
+
+
+/* -----------------------------------------
+   Responsive
+   ----------------------------------------- */
+
+@media (max-width: 620px) {
+  .auth-page {
+    padding: 20px 15px;
+  }
+
+  .auth-card {
+    padding: 24px;
+  }
+
+  .auth-title {
+    font-size: 1.8rem;
+  }
 }
     </style>
   </head>
@@ -119,7 +395,6 @@
       </div>
     </div>
     <!-- Signup page JS -->
-    <script src="js/common.js"></script>
     <script>
 
       document.addEventListener("DOMContentLoaded", () => {

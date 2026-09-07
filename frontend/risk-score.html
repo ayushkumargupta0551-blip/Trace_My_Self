@@ -1,0 +1,703 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Digital Footprint Detector — discover publicly visible information about your digital identity."
+    />
+    <title>Risk Score | Digital Footprint Detector</title>
+   <style>
+ /* Risk Score page CSS */
+
+/* -----------------------------------------
+   Base Page
+   ----------------------------------------- */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(
+      circle at 85% 35%,
+      rgba(45, 75, 105, 0.10),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 15% 65%,
+      rgba(35, 55, 75, 0.08),
+      transparent 30%
+    ),
+    #151515;
+  color: #edf5ff;
+  font-family: Arial, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+
+/* -----------------------------------------
+   Main Application Layout
+   ----------------------------------------- */
+
+.app-shell {
+  min-height: 100vh;
+}
+
+.app-nav {
+  height: 70px;
+  background: #111111;
+  border-bottom: 1px solid #333333;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 25px;
+
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.app-nav .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-left: 265px;
+
+  color: #f5f5f5;
+  font-weight: 800;
+  font-size: 1.08rem;
+}
+
+
+/* -----------------------------------------
+   Logo
+   ----------------------------------------- */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-weight: 800;
+  font-size: 1.08rem;
+}
+
+.logo-mark {
+  width: 36px;
+  height: 36px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 11px;
+
+  background: linear-gradient(135deg, #4f8cff, #7b61ff);
+  box-shadow: 0 8px 25px rgba(79, 140, 255, 0.25);
+}
+
+.logo-accent {
+  color: #76a7ff;
+}
+
+
+/* -----------------------------------------
+   Sidebar
+   ----------------------------------------- */
+
+.sidebar {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 250px;
+  height: 100vh;
+
+  padding: 22px 15px;
+
+  background: #111111;
+  border-right: 1px solid #333333;
+
+  z-index: 30;
+}
+
+.sidebar .logo {
+  margin: 0 10px 28px;
+}
+
+.side-links {
+  display: grid;
+  gap: 5px;
+}
+
+.side-links a {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  padding: 12px 13px;
+
+  border-radius: 11px;
+
+  color: #999999;
+
+  transition: 0.2s ease;
+}
+
+.side-links a:hover,
+.side-links a.active {
+  background: #242424;
+  color: #ffffff;
+}
+
+.side-bottom {
+  position: absolute;
+
+  bottom: 20px;
+  left: 15px;
+  right: 15px;
+}
+
+.logout-btn {
+  display: block;
+  padding: 12px;
+
+  color: #ff9b94;
+}
+
+
+/* -----------------------------------------
+   Profile / Top Navigation
+   ----------------------------------------- */
+
+.profile-mini {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.profile-mini a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-name {
+  color: #cccccc;
+}
+
+.avatar {
+  width: 38px;
+  height: 38px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: linear-gradient(135deg, #4f8cff, #7b61ff);
+
+  font-weight: 800;
+}
+
+.notification {
+  width: 40px;
+  height: 40px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid #333333;
+  border-radius: 11px;
+
+  background: #11243a;
+  color: #999999;
+}
+
+
+/* -----------------------------------------
+   Mobile Menu
+   ----------------------------------------- */
+
+.mobile-menu {
+  display: none;
+
+  padding: 8px 11px;
+
+  border: 1px solid #333333;
+  border-radius: 10px;
+
+  background: #11243a;
+  color: #edf5ff;
+}
+
+
+/* -----------------------------------------
+   Main Content
+   ----------------------------------------- */
+
+.main {
+  margin-left: 250px;
+  padding: 30px;
+
+  background: #151515;
+}
+
+.page-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 20px;
+
+  margin-bottom: 25px;
+}
+
+.eyebrow {
+  display: inline-flex;
+
+  padding: 6px 10px;
+
+  border: 1px solid rgba(79, 140, 255, 0.2);
+  border-radius: 999px;
+
+  background: rgba(79, 140, 255, 0.1);
+
+  color: #9dc0ff;
+
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.page-heading {
+  margin: 8px 0 14px;
+
+  color: #f5f5f5;
+
+  font-size: 2.2rem;
+  line-height: 1.15;
+}
+
+
+/* -----------------------------------------
+   Card
+   ----------------------------------------- */
+
+.card {
+  padding: 22px;
+
+  background: #242424;
+  border: 1px solid #333333;
+  border-radius: 18px;
+
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+}
+
+h2,
+h3 {
+  line-height: 1.15;
+  margin: 0 0 14px;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+h3 {
+  font-size: 1.1rem;
+}
+
+p {
+  margin: 0 0 16px;
+
+  color: #9db0c7;
+}
+
+
+/* -----------------------------------------
+   Risk Score Layout
+   ----------------------------------------- */
+
+.risk-layout {
+  display: grid;
+
+  grid-template-columns: 320px 1fr;
+
+  gap: 20px;
+
+  align-items: start;
+}
+
+.category-card {
+  height: 100%;
+}
+
+
+/* -----------------------------------------
+   Risk Meter
+   ----------------------------------------- */
+
+.risk-card {
+  text-align: center;
+}
+
+.risk-meter {
+  width: 190px;
+  height: 190px;
+
+  display: grid;
+  place-items: center;
+
+  margin: auto;
+
+  border-radius: 50%;
+
+  background: conic-gradient(
+    #f97066 0 72%,
+    #20334b 72% 100%
+  );
+
+  position: relative;
+}
+
+.risk-meter::after {
+  content: "";
+
+  position: absolute;
+
+  width: 145px;
+  height: 145px;
+
+  border-radius: 50%;
+
+  background: #242424;
+}
+
+.risk-content {
+  position: relative;
+  z-index: 1;
+
+  text-align: center;
+}
+
+.risk-score {
+  font-size: 2.8rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.risk-content small {
+  color: #9db0c7;
+}
+
+.risk-badge {
+  margin-top: 7px;
+}
+
+
+/* -----------------------------------------
+   Badge
+   ----------------------------------------- */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 5px 9px;
+
+  border-radius: 999px;
+
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.badge-high {
+  background: rgba(249, 112, 102, 0.12);
+  color: #ff9b94;
+}
+
+
+/* -----------------------------------------
+   Risk Rows
+   ----------------------------------------- */
+
+.risk-row {
+  margin: 18px 0;
+}
+
+.risk-row-head {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 7px;
+
+  font-size: 0.9rem;
+}
+
+.progress {
+  height: 10px;
+
+  overflow: hidden;
+
+  border-radius: 99px;
+
+  background: #1a2c42;
+}
+
+.progress-bar {
+  height: 100%;
+
+  border-radius: inherit;
+
+  background: #4f8cff;
+
+  transition: width 0.5s;
+}
+
+
+/* -----------------------------------------
+   Progress Widths
+   ----------------------------------------- */
+
+.progress-40 {
+  width: 40%;
+}
+
+.progress-60 {
+  width: 60%;
+}
+
+.progress-70 {
+  width: 70%;
+}
+
+.progress-90 {
+  width: 90%;
+}
+
+
+/* -----------------------------------------
+   Warning
+   ----------------------------------------- */
+
+.warning {
+  padding: 14px 16px;
+
+  border: 1px solid rgba(253, 176, 34, 0.25);
+  border-radius: 12px;
+
+  background: rgba(253, 176, 34, 0.07);
+
+  color: #ffd078;
+}
+
+
+/* -----------------------------------------
+   Utility
+   ----------------------------------------- */
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mt-25 {
+  margin-top: 25px;
+}
+
+
+/* -----------------------------------------
+   Responsive Design
+   ----------------------------------------- */
+
+@media (max-width: 900px) {
+
+  .mobile-menu {
+    display: block;
+  }
+
+  .sidebar {
+    transform: translateX(-100%);
+    transition: 0.25s;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .app-nav .logo {
+    margin-left: 0;
+  }
+
+  .main {
+    margin-left: 0;
+  }
+}
+
+
+@media (max-width: 800px) {
+
+  .risk-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media (max-width: 620px) {
+
+  .main {
+    padding: 20px 15px;
+  }
+
+  .app-nav {
+    padding: 0 15px;
+  }
+
+  .page-title {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .user-name {
+    display: none;
+  }
+
+  .risk-meter {
+    width: 180px;
+    height: 180px;
+  }
+
+  .risk-meter::after {
+    width: 138px;
+    height: 138px;
+  }
+}
+</style>
+  </head>
+
+  <body class="">
+    <!-- Page content starts here -->
+
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <a class="logo" href="dashboard.html"
+          ><span class="logo-mark">◈</span> Footprint<span class="logo-accent"
+            >Guard</span
+          ></a
+        >
+        <nav class="side-links">
+          <a class="" href="dashboard.html"><span>▦</span>Dashboard</a
+          ><a class="" href="scan.html"><span>⌕</span>New Scan</a
+          ><a class="" href="history.html"><span>◷</span>History</a
+          ><a class="" href="reports.html"><span>▤</span>Reports</a
+          ><a class="" href="profile.html"><span>♙</span>Profile</a>
+        </nav>
+        <div class="side-bottom">
+          <a href="#" class="logout-btn" class="logout-btn">↪ Logout</a>
+        </div>
+      </aside>
+      <header class="app-nav">
+        <button id="mobileMenu" class="mobile-menu">☰</button>
+        <div class="logo">◈ Risk Score</div>
+        <div class="profile-mini">
+          <button class="notification" title="Notifications">♧</button
+          ><a href="profile.html"
+            ><span class="user-name">Ayush Kumar Gupta</span>
+            <span class="avatar user-initial">AK</span></a
+          >
+        </div>
+      </header>
+      <main class="main">
+        <div class="page-title">
+          <div>
+            <span class="eyebrow">Risk analytics</span>
+            <h1 class="page-heading">Risk Score Visualization</h1>
+          </div>
+        </div>
+        <div class="risk-layout">
+          <section class="card risk-card">
+            <h3>Overall Risk</h3>
+            <div id="riskMeter" class="risk-meter">
+              <div class="risk-content">
+                <div class="risk-score">72</div>
+                <small>/100</small>
+                <div class="badge badge-high" class="risk-badge">HIGH</div>
+              </div>
+            </div>
+            <p class="mt-20">
+              Higher scores indicate greater public exposure signals.
+            </p>
+          </section>
+          <section class="card category-card">
+            <h2>Exposure Categories</h2>
+            <p>See which areas contribute most to the overall score.</p>
+            <div class="risk-row">
+              <div class="risk-row-head">
+                <span>Username Exposure</span><b>90%</b>
+              </div>
+              <div class="progress">
+                <div class="progress-bar progress-90"></div>
+              </div>
+            </div>
+            <div class="risk-row">
+              <div class="risk-row-head">
+                <span>Profile Exposure</span><b>70%</b>
+              </div>
+              <div class="progress">
+                <div class="progress-bar progress-70"></div>
+              </div>
+            </div>
+            <div class="risk-row">
+              <div class="risk-row-head">
+                <span>Contact Exposure</span><b>60%</b>
+              </div>
+              <div class="progress">
+                <div class="progress-bar progress-60"></div>
+              </div>
+            </div>
+            <div class="risk-row">
+              <div class="risk-row-head">
+                <span>Location Exposure</span><b>40%</b>
+              </div>
+              <div class="progress">
+                <div class="progress-bar progress-40"></div>
+              </div>
+            </div>
+            <div class="warning" class="mt-25">
+              Tip: prioritize the highest-exposure category first, then rescan
+              to measure improvement.
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+    <!-- Risk Score page JS -->
+    <script>
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const score = 72;
+        $("#riskMeter").style.background =
+          `conic-gradient(var(--danger) 0 ${score}%,#20334b ${score}% 100%)`;
+      });
+    </script>
+  </body>
+</html>

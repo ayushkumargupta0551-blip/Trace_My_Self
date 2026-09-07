@@ -1,0 +1,897 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Digital Footprint Detector — discover publicly visible information about your digital identity."
+    />
+    <title>New Scan | Digital Footprint Detector</title>
+    <style>
+  /* =========================================================
+     Scan Page - Standalone CSS
+     This page does not depend on common.css
+     ========================================================= */
+
+  /* ---------------------------------------------------------
+     Root Variables
+     --------------------------------------------------------- */
+
+  :root {
+    --bg: #151515;
+    --surface: #242424;
+    --surface-2: #1c1c1c;
+    --border: #333333;
+    --text: #f5f5f5;
+    --muted: #999999;
+    --primary: #4f8cff;
+    --success: #32d583;
+    --warning: #fdb022;
+    --danger: #f97066;
+    --info: #36bffa;
+    --shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+    --radius: 18px;
+    --sidebar: 250px;
+  }
+
+
+  /* ---------------------------------------------------------
+     Reset
+     --------------------------------------------------------- */
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+
+    background:
+      radial-gradient(
+        circle at 85% 35%,
+        rgba(45, 75, 105, 0.10),
+        transparent 30%
+      ),
+      radial-gradient(
+        circle at 15% 65%,
+        rgba(35, 55, 75, 0.08),
+        transparent 30%
+      ),
+      #151515;
+
+    color: var(--text);
+    font-family: Arial, sans-serif;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button,
+  input,
+  select {
+    font: inherit;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+
+  /* ---------------------------------------------------------
+     App Shell
+     --------------------------------------------------------- */
+
+  .app-shell {
+    min-height: 100vh;
+  }
+
+
+  /* ---------------------------------------------------------
+     Sidebar
+     --------------------------------------------------------- */
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: var(--sidebar);
+    height: 100vh;
+
+    padding: 22px 15px;
+
+    background: #111111;
+    border-right: 1px solid var(--border);
+
+    z-index: 30;
+  }
+
+  .sidebar .logo {
+    margin: 0 10px 28px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 1.08rem;
+    font-weight: 800;
+  }
+
+  .logo-mark {
+    width: 36px;
+    height: 36px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 11px;
+
+    background: linear-gradient(
+      135deg,
+      var(--primary),
+      #7b61ff
+    );
+
+    box-shadow: 0 8px 25px rgba(79, 140, 255, 0.25);
+  }
+
+  .logo-accent {
+    color: #76a7ff;
+  }
+
+
+  /* ---------------------------------------------------------
+     Sidebar Links
+     --------------------------------------------------------- */
+
+  .side-links {
+    display: grid;
+    gap: 5px;
+  }
+
+  .side-links a {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    padding: 12px 13px;
+
+    color: #999999;
+
+    border-radius: 11px;
+
+    transition: 0.2s ease;
+  }
+
+  .side-links a:hover {
+    color: #f5f5f5;
+    background: #242424;
+  }
+
+  .side-links a.active {
+    color: #ffffff;
+    background: #242424;
+  }
+
+
+  /* ---------------------------------------------------------
+     Logout
+     --------------------------------------------------------- */
+
+  .side-bottom {
+    position: absolute;
+
+    left: 15px;
+    right: 15px;
+    bottom: 20px;
+  }
+
+  .logout-btn {
+    display: block;
+
+    padding: 12px;
+
+    color: #ff9b94;
+  }
+
+
+  /* ---------------------------------------------------------
+     Top Navigation
+     --------------------------------------------------------- */
+
+  .app-nav {
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 25px;
+
+    background: #111111;
+    border-bottom: 1px solid var(--border);
+
+    position: sticky;
+    top: 0;
+
+    z-index: 10;
+  }
+
+  .app-nav .logo {
+    margin-left: calc(var(--sidebar) + 15px);
+
+    color: #f5f5f5;
+  }
+
+
+  /* ---------------------------------------------------------
+     Profile Mini
+     --------------------------------------------------------- */
+
+  .profile-mini {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .profile-mini a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .profile-mini .user-name {
+    color: #cccccc;
+  }
+
+  .avatar {
+    width: 38px;
+    height: 38px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+      135deg,
+      #4f8cff,
+      #7b61ff
+    );
+
+    font-weight: 800;
+  }
+
+  .notification {
+    width: 40px;
+    height: 40px;
+
+    display: grid;
+    place-items: center;
+
+    color: #999999;
+
+    background: #1c1c1c;
+
+    border: 1px solid var(--border);
+    border-radius: 11px;
+  }
+
+
+  /* ---------------------------------------------------------
+     Mobile Menu
+     --------------------------------------------------------- */
+
+  .mobile-menu {
+    display: none;
+
+    padding: 8px 11px;
+
+    color: var(--text);
+
+    background: #1c1c1c;
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+  }
+
+
+  /* ---------------------------------------------------------
+     Main Content
+     --------------------------------------------------------- */
+
+  .main {
+    min-height: calc(100vh - 70px);
+
+    margin-left: var(--sidebar);
+
+    padding: 30px;
+
+    background: #151515;
+  }
+
+
+  /* ---------------------------------------------------------
+     Page Title
+     --------------------------------------------------------- */
+
+  .page-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+
+    padding: 6px 10px;
+
+    color: #9dc0ff;
+
+    background: rgba(79, 140, 255, 0.1);
+
+    border: 1px solid rgba(79, 140, 255, 0.2);
+    border-radius: 999px;
+
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+
+  .page-heading {
+    margin: 8px 0 14px;
+
+    color: #f5f5f5;
+
+    font-size: 2.2rem;
+    line-height: 1.15;
+  }
+
+
+  /* ---------------------------------------------------------
+     Headings and Paragraphs
+     --------------------------------------------------------- */
+
+  h1,
+  h2,
+  h3 {
+    line-height: 1.15;
+  }
+
+  h1,
+  h2,
+  h3 {
+    margin-top: 0;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+
+  p {
+    margin: 0 0 16px;
+
+    color: var(--muted);
+  }
+
+
+  /* ---------------------------------------------------------
+     Card
+     --------------------------------------------------------- */
+
+  .card {
+    padding: 22px;
+
+    background: #242424;
+
+    border: 1px solid #333333;
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+  }
+
+
+  /* ---------------------------------------------------------
+     Scan Card
+     --------------------------------------------------------- */
+
+  .scan-card {
+    width: 100%;
+    max-width: 800px;
+
+    margin: 0 auto;
+
+    background: #242424;
+
+    border: 1px solid #333333;
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+  }
+
+
+  /* ---------------------------------------------------------
+     Section Heading
+     --------------------------------------------------------- */
+
+  .section-head {
+    text-align: center;
+    max-width: 720px;
+
+    margin: 0 auto 40px;
+  }
+
+  .section-head-left {
+    text-align: left;
+
+    margin: 0 0 25px;
+  }
+
+  .scan-card .section-head h2 {
+    color: #f5f5f5;
+  }
+
+  .scan-card .section-head p {
+    color: #999999;
+  }
+
+
+  /* ---------------------------------------------------------
+     Scan Type Selection
+     --------------------------------------------------------- */
+
+  .scan-type {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 12px;
+
+    margin-top: 22px;
+  }
+
+  .scan-type label {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 15px;
+
+    color: #cccccc;
+
+    background: #1c1c1c;
+
+    border: 1px solid #333333;
+    border-radius: 13px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+  }
+
+  .scan-type label:hover {
+    color: #ffffff;
+
+    background: #2a2a2a;
+
+    border-color: #4f8cff;
+  }
+
+  .scan-type input {
+    accent-color: #4f8cff;
+
+    margin-right: 7px;
+  }
+
+  .scan-type label:has(input:checked) {
+    color: #ffffff;
+
+    background: rgba(79, 140, 255, 0.08);
+
+    border-color: #4f8cff;
+  }
+
+
+  /* ---------------------------------------------------------
+     Form Group
+     --------------------------------------------------------- */
+
+  .form-group {
+    margin-top: 22px;
+  }
+
+  .form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #f5f5f5;
+
+    font-weight: 500;
+  }
+
+
+  /* ---------------------------------------------------------
+     Input
+     --------------------------------------------------------- */
+
+  .input {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    color: #f5f5f5;
+
+    background: #1c1c1c;
+
+    border: 1px solid #333333;
+    border-radius: 10px;
+
+    outline: none;
+
+    transition: 0.2s ease;
+  }
+
+  .input::placeholder {
+    color: #777777;
+  }
+
+  .input:focus {
+    border-color: #4f8cff;
+
+    box-shadow:
+      0 0 0 3px rgba(79, 140, 255, 0.12);
+  }
+
+
+  /* ---------------------------------------------------------
+     Error Message
+     --------------------------------------------------------- */
+
+  .error {
+    display: none;
+
+    margin-top: 10px;
+
+    color: #ff6b6b;
+
+    font-size: 0.9rem;
+  }
+
+
+  /* ---------------------------------------------------------
+     Buttons
+     --------------------------------------------------------- */
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 11px 17px;
+
+    border: 0;
+    border-radius: 12px;
+
+    font-weight: 700;
+
+    transition: 0.2s ease;
+  }
+
+  .btn:hover {
+    transform: translateY(-1px);
+  }
+
+  .btn-primary {
+    color: #ffffff;
+
+    background: #4f8cff;
+
+    box-shadow:
+      0 10px 25px rgba(79, 140, 255, 0.2);
+  }
+
+  .btn-block {
+    width: 100%;
+  }
+
+  .scan-submit {
+    margin-top: 22px;
+  }
+
+
+  /* ---------------------------------------------------------
+     Privacy Warning
+     --------------------------------------------------------- */
+
+  .warning {
+    padding: 15px 16px;
+
+    color: #d6d6d6;
+
+    background: #2a2115;
+
+    border: 1px solid #55452d;
+    border-radius: 12px;
+  }
+
+  .warning b {
+    color: #f5f5f5;
+  }
+
+  .small-text {
+    color: #999999;
+
+    font-size: 0.85rem;
+  }
+
+
+  /* ---------------------------------------------------------
+     Information Line
+     --------------------------------------------------------- */
+
+  .info-line {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 14px;
+
+    color: #999999;
+
+    font-size: 0.85rem;
+  }
+
+
+  /* ---------------------------------------------------------
+     Help Icon
+     --------------------------------------------------------- */
+
+  .help {
+    width: 22px;
+    height: 22px;
+
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    color: #cccccc;
+
+    background: #1c1c1c;
+
+    border: 1px solid #333333;
+
+    border-radius: 50%;
+  }
+
+
+  /* ---------------------------------------------------------
+     Utility Classes Used by Scan Page
+     --------------------------------------------------------- */
+
+  .mt-20 {
+    margin-top: 20px;
+  }
+
+
+  /* ---------------------------------------------------------
+     Responsive - Tablet
+     --------------------------------------------------------- */
+
+  @media (max-width: 900px) {
+
+    .mobile-menu {
+      display: block;
+    }
+
+    .sidebar {
+      transform: translateX(-100%);
+
+      transition: 0.25s ease;
+    }
+
+    .sidebar.open {
+      transform: translateX(0);
+    }
+
+    .app-nav .logo {
+      margin-left: 0;
+    }
+
+    .main {
+      margin-left: 0;
+    }
+
+    .scan-type {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+
+  /* ---------------------------------------------------------
+     Responsive - Mobile
+     --------------------------------------------------------- */
+
+  @media (max-width: 620px) {
+
+    .main {
+      padding: 20px 15px;
+    }
+
+    .app-nav {
+      padding: 0 15px;
+    }
+
+    .page-title {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .page-heading {
+      font-size: 1.9rem;
+    }
+
+    .scan-card {
+      padding: 20px;
+    }
+
+    .scan-type {
+      grid-template-columns: 1fr;
+    }
+
+    .profile-mini .user-name {
+      display: none;
+    }
+
+    .info-line {
+      align-items: flex-start;
+    }
+  }
+</style>
+  </head>
+
+  <body class="">
+    <!-- Page content starts here -->
+
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <a class="logo" href="dashboard.html"
+          ><span class="logo-mark">◈</span> Footprint<span class="logo-accent"
+            >Guard</span
+          ></a
+        >
+        <nav class="side-links">
+          <a class="" href="dashboard.html"><span>▦</span>Dashboard</a
+          ><a class="active" href="scan.html"><span>⌕</span>New Scan</a
+          ><a class="" href="history.html"><span>◷</span>History</a
+          ><a class="" href="reports.html"><span>▤</span>Reports</a
+          ><a class="" href="profile.html"><span>♙</span>Profile</a>
+        </nav>
+        <div class="side-bottom">
+          <a href="#" class="logout-btn" class="logout-btn">↪ Logout</a>
+        </div>
+      </aside>
+      <header class="app-nav">
+        <button id="mobileMenu" class="mobile-menu">☰</button>
+        <div class="logo">◈ New Scan</div>
+        <div class="profile-mini">
+          <button class="notification" title="Notifications">♧</button
+          ><a href="profile.html"
+            ><span class="user-name">Ayush Kumar Gupta</span>
+            <span class="avatar user-initial">AK</span></a
+          >
+        </div>
+      </header>
+      <main class="main">
+        <div class="page-title">
+          <div>
+            <span class="eyebrow">Privacy scan</span>
+            <h1 class="page-heading">Start New Scan</h1>
+          </div>
+        </div>
+        <section class="card scan-card">
+          <div class="section-head" class="section-head-left">
+            <h2>What do you want to search?</h2>
+            <p>
+              Choose one target type. Only scan information that is publicly
+              available.
+            </p>
+          </div>
+          <form id="scanForm">
+            <div class="scan-type">
+              <label
+                ><input type="radio" name="scanType" value="Username" checked />
+                Username</label
+              ><label
+                ><input type="radio" name="scanType" value="Email" />
+                Email</label
+              ><label
+                ><input type="radio" name="scanType" value="Website" />
+                Website</label
+              ><label
+                ><input type="radio" name="scanType" value="Name" /> Name</label
+              >
+            </div>
+            <div class="form-group" class="mt-22">
+              <label for="target">Enter information</label
+              ><input
+                class="input"
+                id="target"
+                placeholder="e.g. ayush123 or you@example.com"
+              />
+            </div>
+            <div class="error" id="scanError">
+              Please enter information to scan.
+            </div>
+            <button
+              class="btn btn-primary btn-block"
+              type="submit"
+              class="scan-submit"
+            >
+              Start Scan →
+            </button>
+          </form>
+          <div class="warning mt-20">
+            ⚠ <b>Scan only publicly available information.</b><br /><span
+              class="small-text"
+              >Do not enter passwords, OTPs, private messages or
+              credentials.</span
+            >
+          </div>
+          <div class="info-line">
+            <span class="help">i</span>
+            <span
+              >Results depend on public source availability and supported
+              integrations.</span
+            >
+          </div>
+        </section>
+      </main>
+    </div>
+     <!-- Scan page JS -->
+    <script>
+
+      document.addEventListener("DOMContentLoaded", () => {
+        $("#scanForm").addEventListener("submit", (e) => {
+          e.preventDefault();
+          const value = $("#target").value.trim();
+          if (!value) {
+            $("#scanError").style.display = "block";
+            return;
+          }
+          $("#scanError").style.display = "none";
+          localStorage.setItem(
+            "pendingScan",
+            JSON.stringify({
+              type: $('input[name="scanType"]:checked').value,
+              target: value,
+              date: new Date().toLocaleDateString(),
+            }),
+          );
+          location.href = "scan-progress.html";
+        });
+      });
+    </script>
+  </body>
+</html>
