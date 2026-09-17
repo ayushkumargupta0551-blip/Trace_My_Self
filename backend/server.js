@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 5000;
 // Allow requests from the frontend
 app.use(
     cors({
-        origin: "http://127.0.0.1:5501"
+         origin: "https://ayushkumargupta0551-blip.github.io"
     })
 );
 
